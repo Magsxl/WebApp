@@ -21,11 +21,6 @@ class ankietowany(db.Model):
     Timestamp = db.Column(db.DateTime, default=datetime.now)
     for name in table_names:
         question = db.relationship(name.title(), backref='ankietowany', lazy=True)
-    """@declared_attr
-    def questions(cls):
-        return db.relationship('pytanie', backref='ankietowany', lazy=True)"""
-
-
 
 class pytanie(object):
     ID_pytania = db.Column(db.Integer, primary_key=True)
@@ -39,6 +34,8 @@ for name in table_names:
 
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
+    if request.method == 'GET':
+        return render_template('index.html')
     if request.method == 'POST':
         status = request.form['status']
         age = request.form['age']
@@ -51,16 +48,29 @@ def home_page():
         db.session.commit()
         return redirect(url_for('poll_page'))
 
-    return render_template('index.html')
-
+# 1 = dyes, 2 = myes, 3 = idk, 4 = mno, 5 = dno
+questionDict = {
+    "pytanie1": 0,
+    "pytanie2": 0,
+    "pytanie3": 0,
+    "pytanie4": 0,
+    "pytanie5": 0,
+    "pytanie6": 0,
+    "pytanie7": 0,
+    "pytanie8": 0,
+    "pytanie9": 0,
+    "pytanie10": 0,
+    "pytanie11": 0,
+    "pytanie12": 0,
+    "pytanie13": 0,
+    "pytanie14": 0,
+    "pytanie15": 0,
+}
 
 @app.route('/poll', methods=['GET', 'POST'])
 def poll_page():
-    dy = "Zdecydowanie tak"
-    my = "Raczej tak"
-    idk = "Nie wiem"
-    mn = "Raczej nie"
-    dn = "Zdecydowanie nie"
+    if request.method == 'GET':
+        return render_template('poll.html', dyes=dy, myes=my, idk=idk, mno=mn, dno=dn)
     if request.method == 'POST':   
         dyes = request.form['optradio1.dyes']
         myes = request.form['optradio1.myes']
@@ -68,7 +78,6 @@ def poll_page():
         mno = request.form['optradio1.mno']
         dno = request.form['optradio1.dno']
         dataPyt = table_names[0](Odpowiedz = dyes)
-    return render_template('poll.html', dyes = dy, myes = my, idk = idk, mno = mn, dno = dn)
 
 
 if __name__ == '__main__':
