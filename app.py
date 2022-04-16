@@ -49,9 +49,9 @@ class pytanie(object):
     def Person_ID(cls):
         return db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
 
-def initDB(): 
-    for name in table_names:
-        type(name.title(), (pytanie, db.Model), {'__tablename__' : name})
+for name in table_names:
+    print(name)
+    type(name.title(), (pytanie, db.Model), {'__tablename__' : name})
 
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
@@ -86,9 +86,8 @@ def poll_page():
             i += 1
             questionDict["pytanie" + str(i)] = int(myDict[key][6:])
         for key in questionDict:
-            data = key(ODPOWIEDZ=questionDict[key])
+            data2 = key(ODPOWIEDZ=questionDict[key])
 
 
 if __name__ == '__main__':
-    initDB()
     app.run(debug=True)
