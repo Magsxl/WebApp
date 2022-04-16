@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
+    <title>Ankieta</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Ocena korzyści i zagrożeń z wykorzystania dronów dla celów ekologicznych</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+    </nav>
+    <div class="container-fluid pt-5">
+        <h3>Ankieta dotycząca tego co w tytule ;)</h3>
+    </div>
+    <div class="container-fluid pt-3">
+        <h4><i>15 pytań</i></h4>
+    </div>
+    <div class="containter-fluid pt-1 pl-5">
+     <form action="/action_page.php">
+        <div class="container-fluid mt-3 pl-3"> <!--Questions-->
+            <p><i>1. Pierwsze pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio1.dyes" value="option1">
+                <label class="form-check-label" for="radio1">Zdecydowanie Tak</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio1.myes" value="option2">
+                <label class="form-check-label" for="radio2">Raczej tak</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio1.idk" value="option3">
+                <label class="form-check-label">Nie wiem</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio1.mno" value="option4">
+                <label class="form-check-label">Raczej nie</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio1.dno" value="option5">
+                <label class="form-check-label">Zdecydowanie nie</label>
+                </p>
+            </div>
+            <br>
+            <p><i>2. Drugie pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio2" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio2" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio2" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio2" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio2" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>3. Trzecie pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio3" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio3" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio3" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio3" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio3" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>4. Czwarte pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio4" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio4" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio4" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio4" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio4" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>5. Piąte pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio5" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio5" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio5" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio5" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio5" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>6. Szóste pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio6" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio6" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio6" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio6" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio6" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>7. Siódme pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio7" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio7" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio7" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio7" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio7" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>8. Ósme pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio8" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio8" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio8" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio8" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio8" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>9. Dziewiąte pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio9" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio9" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio9" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio9" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio9" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>10. Dziesiąte pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio10" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio10" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio10" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio10" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio10" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>11. Jedenaste pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio11" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio11" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio11" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio11" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio11" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>12. Dwunaste pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio12" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio12" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio12" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio12" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio12" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>13. Trzynaste pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio13" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio13" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio13" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio13" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio13" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>14. Czternaste pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio14" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio14" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio14" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio14" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio14" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+            <br>
+            <p><i>15. Piętnaste pytanie</i></p>
+            <div class="form-check">
+                <p>a)
+                <input type="radio" class="form-check-input" id="radio1" name="optradio15" value="option1">
+                <label class="form-check-label" for="radio1">{{dyes}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>b)
+                <input type="radio" class="form-check-input" id="radio2" name="optradio15" value="option2">
+                <label class="form-check-label" for="radio2">{{myes}}</label>
+                </p>
+            </div>  
+            <div class="form-check"> 
+                <p>c)
+                <input type="radio" class="form-check-input" id="radio3" name="optradio15" value="option3">
+                <label class="form-check-label">{{idk}}</label>
+                </p>
+            </div>    
+            <div class="form-check">
+                <p>d)
+                <input type="radio" class="form-check-input" id="radio4" name="optradio15" value="option4">
+                <label class="form-check-label">{{mno}}</label>
+                </p>
+            </div>
+            <div class="form-check">
+                <p>e)
+                <input type="radio" class="form-check-input" id="radio5" name="optradio15" value="option5">
+                <label class="form-check-label">{{dno}}</label>
+                </p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Wyślij</button>
+     </form>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  </body>
+  <style>
+      body {
+          background-color: #212121;
+          color:white;
+      }
+
+      .btn-primary {
+          margin-top: 20px;
+          margin-left: 25px;
+          margin-bottom: 25px;
+      }
+  </style>
+</html>
