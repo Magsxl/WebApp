@@ -23,6 +23,8 @@ class ankietowany(db.Model):
     def questions(cls):
         return db.relationship('pytanie', backref='ankietowany', lazy=True)
 
+
+
 class pytanie(object):
     ID_pytania = db.Column(db.Integer, primary_key=True)
     Odpowiedz = db.Column(db.String(200), nullable=False)
@@ -30,51 +32,10 @@ class pytanie(object):
     def Person_ID(cls):
         return db.Column(db.Integer, db.ForeignKey('ankietowany.ID'),nullable=False)
 
-class pytanie_1(pytanie, db.Model):
-    __tablename__ = 'Pytanie_1'
+table_names = ['pytanie_1', 'pytanie_2', 'pytanie_3', 'pytanie_4', 'pytanie_5', 'pytanie_6', 'pytanie_7', 'pytanie_8', 'pytanie_9', 'pytanie_10', 'pytanie_11', 'pytanie_12', 'pytanie_13', 'pytanie_14', 'pytanie_15', ]
 
-class pytanie_2(pytanie, db.Model):
-    __tablename__ = 'Pytanie_2'
-
-class pytanie_3(pytanie, db.Model):
-    __tablename__ = 'Pytanie_3'
-
-class pytanie_4(pytanie, db.Model):
-    __tablename__ = 'Pytanie_4'
-
-class pytanie_5(pytanie, db.Model):
-    __tablename__ = 'Pytanie_5'
-
-class pytanie_6(pytanie, db.Model):
-    __tablename__ = 'Pytanie_6'
-
-class pytanie_7(pytanie, db.Model):
-    __tablename__ = 'Pytanie_7'
-
-class pytanie_8(pytanie, db.Model):
-    __tablename__ = 'Pytanie_8'
-
-class pytanie_9(pytanie, db.Model):
-    __tablename__ = 'Pytanie_9'
-
-class pytanie_10(pytanie, db.Model):
-    __tablename__ = 'Pytanie_10'
-
-class pytanie_11(pytanie, db.Model):
-    __tablename__ = 'Pytanie_11'
-
-class pytanie_12(pytanie, db.Model):
-    __tablename__ = 'Pytanie_12'
-
-class pytanie_13(pytanie, db.Model):
-    __tablename__ = 'Pytanie_13'
-
-class pytanie_14(pytanie, db.Model):
-    __tablename__ = 'Pytanie_14'
-
-class pytanie_15(pytanie, db.Model):
-    __tablename__ = 'Pytanie_15'
-
+for name in table_names:
+    type(name.title(), (pytanie, db.Model), {'__tablename__' : name})
 
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
@@ -106,5 +67,5 @@ def poll_page():
         idk1 = request.form['optradio1.idk']
         mno = request.form['optradio1.mno']
         dno = request.form['optradio1.dno']
-        dataPyt = pytanie_1()
+        #dataPyt = pytanie_1()
     return render_template('poll.html', dyes = dy, myes = my, idk = idk, mno = mn, dno = dn)
