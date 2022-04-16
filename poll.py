@@ -9,7 +9,27 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Najlepszy@localhos
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = "sekretny klucz"
 db = SQLAlchemy(app)
+
 table_names = ['pytanie_1', 'pytanie_2', 'pytanie_3', 'pytanie_4', 'pytanie_5', 'pytanie_6', 'pytanie_7', 'pytanie_8', 'pytanie_9', 'pytanie_10', 'pytanie_11', 'pytanie_12', 'pytanie_13', 'pytanie_14', 'pytanie_15']
+
+# 1 = dyes, 2 = myes, 3 = idk, 4 = mno, 5 = dno
+questionDict = {
+    "pytanie1": 0,
+    "pytanie2": 0,
+    "pytanie3": 0,
+    "pytanie4": 0,
+    "pytanie5": 0,
+    "pytanie6": 0,
+    "pytanie7": 0,
+    "pytanie8": 0,
+    "pytanie9": 0,
+    "pytanie10": 0,
+    "pytanie11": 0,
+    "pytanie12": 0,
+    "pytanie13": 0,
+    "pytanie14": 0,
+    "pytanie15": 0,
+}
 
 class ankietowany(db.Model):
     ID = db.Column(db.Integer, primary_key=True)
@@ -48,36 +68,25 @@ def home_page():
         db.session.commit()
         return redirect(url_for('poll_page'))
 
-# 1 = dyes, 2 = myes, 3 = idk, 4 = mno, 5 = dno
-questionDict = {
-    "pytanie1": 0,
-    "pytanie2": 0,
-    "pytanie3": 0,
-    "pytanie4": 0,
-    "pytanie5": 0,
-    "pytanie6": 0,
-    "pytanie7": 0,
-    "pytanie8": 0,
-    "pytanie9": 0,
-    "pytanie10": 0,
-    "pytanie11": 0,
-    "pytanie12": 0,
-    "pytanie13": 0,
-    "pytanie14": 0,
-    "pytanie15": 0,
-}
+
 
 @app.route('/poll', methods=['GET', 'POST'])
 def poll_page():
+    dy = "Zdecydowanie tak"
+    my = "Raczej tak"
+    idk = "Nie wiem"
+    mn = "Raczej nie"
+    dn = "Zdecydowanie nie"
     if request.method == 'GET':
         return render_template('poll.html', dyes=dy, myes=my, idk=idk, mno=mn, dno=dn)
     if request.method == 'POST':   
-        dyes = request.form['optradio1.dyes']
-        myes = request.form['optradio1.myes']
-        idk1 = request.form['optradio1.idk']
-        mno = request.form['optradio1.mno']
-        dno = request.form['optradio1.dno']
-        dataPyt = table_names[0](Odpowiedz = dyes)
+        myDict = dict(request.form)
+        i = 0
+        for key in myDict:
+            i += 1
+            questionDict["pytanie" + str(i)] = int(myDict[key][6:])
+        for key in questionDict:
+            data = key(ODPOWIEDZ=questionDict[key])
 
 
 if __name__ == '__main__':
