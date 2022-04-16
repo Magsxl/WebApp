@@ -9,7 +9,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Najlepszy@localhos
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = "sekretny klucz"
 db = SQLAlchemy(app)
-
+table_names = ['pytanie_1', 'pytanie_2', 'pytanie_3', 'pytanie_4', 'pytanie_5', 'pytanie_6', 'pytanie_7', 'pytanie_8', 'pytanie_9', 'pytanie_10', 'pytanie_11', 'pytanie_12', 'pytanie_13', 'pytanie_14', 'pytanie_15']
 
 class ankietowany(db.Model):
     ID = db.Column(db.Integer, primary_key=True)
@@ -19,9 +19,11 @@ class ankietowany(db.Model):
     Pochodzenie = db.Column(db.String(200), nullable=False)
     Zawod = db.Column(db.String(200), nullable=True)
     Timestamp = db.Column(db.DateTime, default=datetime.now)
-    @declared_attr
+    for name in table_names:
+        question = db.relationship(name.title(), backref='ankietowany', lazy=True)
+    """@declared_attr
     def questions(cls):
-        return db.relationship('pytanie', backref='ankietowany', lazy=True)
+        return db.relationship('pytanie', backref='ankietowany', lazy=True)"""
 
 
 
@@ -30,9 +32,7 @@ class pytanie(object):
     Odpowiedz = db.Column(db.String(200), nullable=False)
     @declared_attr
     def Person_ID(cls):
-        return db.Column(db.Integer, db.ForeignKey('ankietowany.ID'),nullable=False)
-
-table_names = ['pytanie_1', 'pytanie_2', 'pytanie_3', 'pytanie_4', 'pytanie_5', 'pytanie_6', 'pytanie_7', 'pytanie_8', 'pytanie_9', 'pytanie_10', 'pytanie_11', 'pytanie_12', 'pytanie_13', 'pytanie_14', 'pytanie_15', ]
+        return db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
 
 for name in table_names:
     type(name.title(), (pytanie, db.Model), {'__tablename__' : name})
@@ -67,5 +67,9 @@ def poll_page():
         idk1 = request.form['optradio1.idk']
         mno = request.form['optradio1.mno']
         dno = request.form['optradio1.dno']
-        #dataPyt = pytanie_1()
+        dataPyt = table_names[0](Odpowiedz = dyes)
     return render_template('poll.html', dyes = dy, myes = my, idk = idk, mno = mn, dno = dn)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
