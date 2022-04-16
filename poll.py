@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.ext.declarative import declared_attr
 import pymysql
 from datetime import datetime
 app = Flask(__name__)
@@ -18,12 +19,62 @@ class ankietowany(db.Model):
     Pochodzenie = db.Column(db.String(200), nullable=False)
     Zawod = db.Column(db.String(200), nullable=True)
     Timestamp = db.Column(db.DateTime, default=datetime.now)
+    @declared_attr
+    def questions(cls):
+        return db.relationship('pytanie', backref='ankietowany', lazy=True)
 
-class pytanie_1(db.Model):
+class pytanie(object):
     ID_pytania = db.Column(db.Integer, primary_key=True)
     Odpowiedz = db.Column(db.String(200), nullable=False)
-    PersonID = db.Column(db.Integer, db.ForeignKey('ankietowany'),nullable=False)
-    Person = db.relationship('ankietowany',backref=db.backref('pytanie', lazy=True))
+    @declared_attr
+    def Person_ID(cls):
+        return db.Column(db.Integer, db.ForeignKey('ankietowany.ID'),nullable=False)
+
+class pytanie_1(pytanie, db.Model):
+    __tablename__ = 'Pytanie_1'
+
+class pytanie_2(pytanie, db.Model):
+    __tablename__ = 'Pytanie_2'
+
+class pytanie_3(pytanie, db.Model):
+    __tablename__ = 'Pytanie_3'
+
+class pytanie_4(pytanie, db.Model):
+    __tablename__ = 'Pytanie_4'
+
+class pytanie_5(pytanie, db.Model):
+    __tablename__ = 'Pytanie_5'
+
+class pytanie_6(pytanie, db.Model):
+    __tablename__ = 'Pytanie_6'
+
+class pytanie_7(pytanie, db.Model):
+    __tablename__ = 'Pytanie_7'
+
+class pytanie_8(pytanie, db.Model):
+    __tablename__ = 'Pytanie_8'
+
+class pytanie_9(pytanie, db.Model):
+    __tablename__ = 'Pytanie_9'
+
+class pytanie_10(pytanie, db.Model):
+    __tablename__ = 'Pytanie_10'
+
+class pytanie_11(pytanie, db.Model):
+    __tablename__ = 'Pytanie_11'
+
+class pytanie_12(pytanie, db.Model):
+    __tablename__ = 'Pytanie_12'
+
+class pytanie_13(pytanie, db.Model):
+    __tablename__ = 'Pytanie_13'
+
+class pytanie_14(pytanie, db.Model):
+    __tablename__ = 'Pytanie_14'
+
+class pytanie_15(pytanie, db.Model):
+    __tablename__ = 'Pytanie_15'
+
 
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
