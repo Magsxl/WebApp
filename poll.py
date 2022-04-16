@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = "sekretny klucz"
 db = SQLAlchemy(app)
 
-table_names = ['pytanie_1', 'pytanie_2', 'pytanie_3', 'pytanie_4', 'pytanie_5', 'pytanie_6', 'pytanie_7', 'pytanie_8', 'pytanie_9', 'pytanie_10', 'pytanie_11', 'pytanie_12', 'pytanie_13', 'pytanie_14', 'pytanie_15']
+table_names = ['pytanie1', 'pytanie2', 'pytanie3', 'pytanie4', 'pytanie5', 'pytanie6', 'pytanie7', 'pytanie8', 'pytanie9', 'pytanie10', 'pytanie11', 'pytanie12', 'pytanie13', 'pytanie14', 'pytanie15']
 
 # 1 = dyes, 2 = myes, 3 = idk, 4 = mno, 5 = dno
 questionDict = {
