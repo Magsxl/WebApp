@@ -49,8 +49,9 @@ class pytanie(object):
     def Person_ID(cls):
         return db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
 
-for name in table_names:
-    type(name.title(), (pytanie, db.Model), {'__tablename__' : name})
+def initDB(): 
+    for name in table_names:
+        type(name.title(), (pytanie, db.Model), {'__tablename__' : name})
 
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
@@ -67,7 +68,6 @@ def home_page():
         db.session.add(data)
         db.session.commit()
         return redirect(url_for('poll_page'))
-
 
 
 @app.route('/poll', methods=['GET', 'POST'])
@@ -90,4 +90,5 @@ def poll_page():
 
 
 if __name__ == '__main__':
+    initDB()
     app.run(debug=True)
