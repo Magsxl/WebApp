@@ -1,19 +1,17 @@
-from flask import Flask, make_response, render_template, request, url_for, redirect, session
+from flask import Flask, make_response, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
 from datetime import datetime
-
-from sqlalchemy import true
-
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Najlepszy@localhost/ankieta'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = "sekretny klucz"
+
 db = SQLAlchemy(app)
 currID = 0
-#table_names = ['pytanie1', 'pytanie2', 'pytanie3', 'pytanie4', 'pytanie5', 'pytanie6', 'pytanie7', 'pytanie8', 'pytanie9', 'pytanie10', 'pytanie11', 'pytanie12', 'pytanie13', 'pytanie14', 'pytanie15']
 table_names2 = ['pytania1_4', 'pytania5_9', 'pytania10_15']
+
 # 1 = dyes, 2 = myes, 3 = idk, 4 = mno, 5 = dno
 questionDict = {
     "pytanie1": 0,
@@ -32,6 +30,7 @@ questionDict = {
     "pytanie14": 0,
     "pytanie15": 0,
 }
+
 class Pytania(db.Model):
     __abstract__ = True
     ID_pytania = db.Column(db.Integer, primary_key=True)
@@ -78,7 +77,6 @@ def home_page():
         resp = make_response(redirect(url_for('poll_page')))
         resp.set_cookie('userID', str(count))
         return resp
-
 
 @app.route('/poll', methods=['GET', 'POST'])
 def poll_page():
