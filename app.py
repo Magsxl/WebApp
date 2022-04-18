@@ -1,17 +1,19 @@
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.ext.declarative import declared_attr
 import pymysql
 from datetime import datetime
-app = Flask(__name__)
 
+from sqlalchemy import true
+
+
+app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Najlepszy@localhost/ankieta'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = "sekretny klucz"
 db = SQLAlchemy(app)
 
-table_names = ['pytanie1', 'pytanie2', 'pytanie3', 'pytanie4', 'pytanie5', 'pytanie6', 'pytanie7', 'pytanie8', 'pytanie9', 'pytanie10', 'pytanie11', 'pytanie12', 'pytanie13', 'pytanie14', 'pytanie15']
-
+#table_names = ['pytanie1', 'pytanie2', 'pytanie3', 'pytanie4', 'pytanie5', 'pytanie6', 'pytanie7', 'pytanie8', 'pytanie9', 'pytanie10', 'pytanie11', 'pytanie12', 'pytanie13', 'pytanie14', 'pytanie15']
+table_names2 = ['pytania1_4', 'pytania5_9', 'pytania10_15']
 # 1 = dyes, 2 = myes, 3 = idk, 4 = mno, 5 = dno
 questionDict = {
     "pytanie1": 0,
@@ -30,8 +32,22 @@ questionDict = {
     "pytanie14": 0,
     "pytanie15": 0,
 }
+class Pytania(db.Model):
+    __abstract__ = True
+    ID_pytania = db.Column(db.Integer, primary_key=True)
+    Odpowiedz = db.Column(db.String(200), nullable=False)
+
+class Pytania1_4(Pytania, db.Model):
+    Person_ID = db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
+
+class Pytania5_9(Pytania, db.Model):
+    Person_ID = db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
+
+class Pytania10_15(Pytania, db.Model):
+    Person_ID = db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
 
 class ankietowany(db.Model):
+    __tablename__ = 'ankietowany'
     ID = db.Column(db.Integer, primary_key=True)
     Status = db.Column(db.String(200), nullable = False)
     Wiek = db.Column(db.Integer, nullable=False)
@@ -39,19 +55,9 @@ class ankietowany(db.Model):
     Pochodzenie = db.Column(db.String(200), nullable=False)
     Zawod = db.Column(db.String(200), nullable=True)
     Timestamp = db.Column(db.DateTime, default=datetime.now)
-    for name in table_names:
-        question = db.relationship(name.title(), backref='ankietowany', lazy=True)
-
-class pytanie(object):
-    ID_pytania = db.Column(db.Integer, primary_key=True)
-    Odpowiedz = db.Column(db.String(200), nullable=False)
-    @declared_attr
-    def Person_ID(cls):
-        return db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
-
-for name in table_names:
-    print(name)
-    type(name.title(), (pytanie, db.Model), {'__tablename__' : name})
+    question1_4 = db.relationship('Pytania1_4', backref='ankietowany', lazy=True)
+    question5_9 = db.relationship('Pytania5_9', backref='ankietowany', lazy=True)
+    question10_15 = db.relationship('Pytania10_15', backref='ankietowany', lazy=True)
 
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
@@ -86,7 +92,9 @@ def poll_page():
             i += 1
             questionDict["pytanie" + str(i)] = int(myDict[key][6:])
         for key in questionDict:
-            data2 = key(ODPOWIEDZ=questionDict[key])
+            data2 = key(Odpowiedz=questionDict[key])
+            db.session.add(data2)
+            db.session.commit()
 
 
 if __name__ == '__main__':
