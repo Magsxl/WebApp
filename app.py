@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, make_response, render_template, request, url_for, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 import pymysql
 from datetime import datetime
@@ -11,7 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Najlepszy@localhos
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SECRET_KEY'] = "sekretny klucz"
 db = SQLAlchemy(app)
-
+currID = 0
 #table_names = ['pytanie1', 'pytanie2', 'pytanie3', 'pytanie4', 'pytanie5', 'pytanie6', 'pytanie7', 'pytanie8', 'pytanie9', 'pytanie10', 'pytanie11', 'pytanie12', 'pytanie13', 'pytanie14', 'pytanie15']
 table_names2 = ['pytania1_4', 'pytania5_9', 'pytania10_15']
 # 1 = dyes, 2 = myes, 3 = idk, 4 = mno, 5 = dno
@@ -35,6 +35,7 @@ questionDict = {
 class Pytania(db.Model):
     __abstract__ = True
     ID_pytania = db.Column(db.Integer, primary_key=True)
+    Nr_Pytania = db.Column(db.Integer, nullable=False)
     Odpowiedz = db.Column(db.String(200), nullable=False)
 
 class Pytania1_4(Pytania, db.Model):
@@ -73,7 +74,10 @@ def home_page():
         data = ankietowany(Status = status, Wiek = age, Plec = sex, Pochodzenie = place, Zawod = job, Timestamp = now)
         db.session.add(data)
         db.session.commit()
-        return redirect(url_for('poll_page'))
+        count = ankietowany.query.count()
+        resp = make_response(redirect(url_for('poll_page')))
+        resp.set_cookie('userID', str(count))
+        return resp
 
 
 @app.route('/poll', methods=['GET', 'POST'])
@@ -88,14 +92,23 @@ def poll_page():
     if request.method == 'POST':   
         myDict = dict(request.form)
         i = 0
+        currID = request.cookies.get('userID')
         for key in myDict:
             i += 1
             questionDict["pytanie" + str(i)] = int(myDict[key][6:])
         for key in questionDict:
-            data2 = key(Odpowiedz=questionDict[key])
-            db.session.add(data2)
-            db.session.commit()
-
+            if int(key[7:]) < 5:
+                data2 = Pytania1_4(Nr_Pytania=int(key[7:]), Odpowiedz=questionDict[key], Person_ID=currID)
+                db.session.add(data2)
+                db.session.commit()
+            elif int(key[7:]) < 10:
+                data2 = Pytania5_9(Nr_Pytania=int(key[7:]), Odpowiedz=questionDict[key], Person_ID=currID)
+                db.session.add(data2)
+                db.session.commit()
+            elif int(key[7:]) < 16:
+                data2 = Pytania10_15(Nr_Pytania=int(key[7:]), Odpowiedz=questionDict[key], Person_ID=currID)
+                db.session.add(data2)
+                db.session.commit()
 
 if __name__ == '__main__':
     app.run(debug=True)
