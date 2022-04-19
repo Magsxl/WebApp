@@ -1,9 +1,7 @@
 from flask import Flask, make_response, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
-import pymysql
 from datetime import datetime
-
-from sqlalchemy import null
+import pymysql
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Najlepszy@localhost/ankieta'
