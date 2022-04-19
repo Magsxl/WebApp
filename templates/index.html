@@ -10,7 +10,7 @@
     <script>
       function createAgeOpt() {
         var ageOpt = "<option selected disabled value=''>...</option>";
-        for (var i=1; i<100; i++) {
+        for (var i=18; i<100; i++) {
           ageOpt += "<option value='"+i+"'>"+i+"</option>"
         }
         document.getElementById('validationCustom01').innerHTML = ageOpt;
@@ -112,18 +112,15 @@
   <style>
     html,body {
       height:100%; 
-    }
-
-    .navbar-brand {
-      margin-left: 1.7%;
-    }
-
-    .bg {
       background-image: url("static/csr.jpg");
       height: 100%; 
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+    }
+
+    .navbar-brand {
+      margin-left: 1.7%;
     }
 
     .btn-primary {
