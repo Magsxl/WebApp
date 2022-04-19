@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 import pymysql
 from datetime import datetime
 
+from sqlalchemy import null
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Najlepszy@localhost/ankieta'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
@@ -85,12 +87,15 @@ def poll_page():
     idk = "Nie wiem"
     mn = "Raczej nie"
     dn = "Zdecydowanie nie"
+    currID = request.cookies.get('userID')
     if request.method == 'GET':
-        return render_template('poll.html', dyes=dy, myes=my, idk=idk, mno=mn, dno=dn)
+        if currID is not None:
+            return render_template('poll.html', dyes=dy, myes=my, idk=idk, mno=mn, dno=dn)
+        else:
+            return render_template('500.html')
     if request.method == 'POST':   
         myDict = dict(request.form)
         i = 0
-        currID = request.cookies.get('userID')
         for key in myDict:
             i += 1
             questionDict["pytanie" + str(i)] = int(myDict[key][6:])
