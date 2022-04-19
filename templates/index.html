@@ -1,21 +1,18 @@
 <!doctype html>
 <html lang="pl">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Ankieta</title>
     <script>
       function createAgeOpt() {
-        var ageOpt = "<option selected disabled>Wybierz swój wiek...</option>";
+        var ageOpt = "<option selected disabled>...</option>";
         for (var i=1; i<100; i++) {
           ageOpt += "<option value='"+i+"'>"+i+"</option>"
         }
-
         document.getElementById('validationCustom01').innerHTML = ageOpt;
       }    
     </script>
@@ -32,55 +29,54 @@
     <div class="col-3 pt-5 position-absolute start-0" id="formularz">
       <h3>Ankieta dotycząca tego co w tytule ;)</h3>
       <form method="POST" class="needs-validation" action="/" novalidate>
-        <div class="col-8 pt-4"> <!--Status select-->
-          <label for="validationCustom" class="form-label">Status:</label>
+        <div class="col-8 form-floating" id="floater"> <!--Status select-->
           <select class="form-select" id="validationCustom" name="status" required>
-            <option selected disabled value="">Wybierz status...</option>
+            <option selected disabled value="">...</option>
             <option>Uczeń</option>
             <option>Student</option>
             <option>Pracownik etatowy</option>
             <option>Emeryt</option>
           </select>
+          <label for="validationCustom">Status:</label>
           <div class="invalid-feedback">
             Wybierz status.
           </div>
         </div>
-        <div class="col-8 pt-4"> <!--Age select-->
-            <label for="validationCustom01" class="form-label">Wiek:</label>
-            <select class="form-select overflow-auto" id="validationCustom01" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' name="age" required>
+        <div class="col-8 mt-3 form-floating"> <!--Age select-->
+            <select class="form-select overflow-auto" id="validationCustom01" name="age" required>
             </select>
+            <label for="validationCustom01">Wiek:</label>
             <div class="invalid-feedback">
               Wybierz wiek.
             </div>
         </div>
-        <div class="col-8 pt-4"> <!--Sex select-->
-          <label for="validationCustom02" class="form-label">Płeć:</label>
+        <div class="col-8 form-floating" id="floater"> <!--Sex select-->
           <select class="form-select" id="validationCustom02" name="sex" required>
-            <option selected disabled value="">Wybierz płeć...</option>
+            <option selected disabled value="">...</option>
             <option value="M">Mężczyzna</option>
             <option value="F">Kobieta</option>
           </select>
+          <label for="validationCustom02" class="form-label">Płeć:</label>
           <div class="invalid-feedback">
             Wybierz płeć.
           </div>
         </div>
-        <div class="col-8 pt-4"> <!--Place select-->
-            <label for="validationCustom03" class="form-label">Miejsce zamieszkania:</label>
-            <select class="form-select" id="validationCustom03" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();' name="place" required>
-              <option selected disabled value="">Wybierz miejsce zamieszkania...</option>
+        <div class="col-8 form-floating" id="floater"> <!--Place select-->
+            <select class="form-select overflow-auto" id="validationCustom03" name="place" required>
+              <option selected disabled value="">...</option>
               <option>Wieś</option>
               <option>Miasteczko - poniżej 30 tys. mieszkańców</option>
               <option>Małe miasto - między 30 tys. a 100 tys. mieszkańców</option>
               <option>Miasto - między 100 tys. a 250 tys. mieszkańców</option>
               <option>Duże miasto - powyżej 250 tys. mieszkańców</option>
             </select>
+            <label for="validationCustom03" class="form-label">Miejsce zamieszkania:</label>
             <div class="invalid-feedback">
               Wybierz miejsce zamieszkania.
             </div>
         </div>
-        <div class="col-8 pt-4"> <!--Job select-->
-            <label for="validationCustom04" class="form-label">Zawód: (w razie braku wpisz "brak")</label>
-            <input class="form-control" id="validationCustom04" type="text" placeholder="Wpisz swój zawód..." name="job" required>
+        <div class="col-8" id="floater"> <!--Job select-->
+            <input class="form-control p-3" id="validationCustom04 exampleInput" type="text" placeholder="Zawód: (w razie braku wpisz 'brak')" name="job" required>
             <div class="invalid-feedback">
               Wpisz swój zawód.
             </div>
@@ -90,16 +86,12 @@
         </div>
       </form>
     </div> 
-
-    <!-- Optional JavaScript; choose one of the two! -->
     <script>
       (function () {
         'use strict'
         
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
         var forms = document.querySelectorAll('.needs-validation')
         
-        // Loop over them and prevent submission
         Array.prototype.slice.call(forms)
           .forEach(function (form) {
             form.addEventListener('submit', function (event) {
@@ -115,7 +107,6 @@
     </script>
   </body>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   <style>
@@ -142,7 +133,11 @@
     }
 
     #formularz {
-      margin-left: 15%;
+      margin-left: 12.9%;
+    }
+
+    #floater {
+      margin-top: 1.5rem;
     }
   </style>
 </html>
