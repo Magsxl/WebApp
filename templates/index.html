@@ -18,16 +18,16 @@
     </script>
   </head>
   <body onload="createAgeOpt()" class="bg">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark"> <!--Navbar-->
+    <nav class="navbar navbar-expand-sm navbar-dark"> <!--Navbar-->
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Ocena korzyści i zagrożeń z wykorzystania dronów dla celów ekologicznych</a>
+        <a class="navbar-brand" href="#"><h3 style="color:white">Ocena korzyści i zagrożeń z wykorzystania dronów dla celów ekologicznych</h3></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
     </nav>
     <div class="col-3 pt-5 position-absolute start-0" id="formularz">
-      <h3>Ankieta dotycząca tego co w tytule ;)</h3>
+      <h3 style="color:white">Ankieta dotycząca tego co w tytule ;)</h3>
       <form method="POST" class="needs-validation" action="/" novalidate>
         <div class="col-8 form-floating" id="floater"> <!--Status select-->
           <select class="form-select" id="validationCustom" name="status" required>
@@ -112,6 +112,10 @@
   <style>
     html,body {
       height:100%; 
+    }
+
+    .navbar-brand {
+      margin-left: 1.7%;
     }
 
     .bg {
