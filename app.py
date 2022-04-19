@@ -112,6 +112,16 @@ def poll_page():
                 data2 = Pytania10_15(Nr_Pytania=int(key[7:]), Odpowiedz=questionDict[key], Person_ID=currID)
                 db.session.add(data2)
                 db.session.commit()
+        return redirect(url_for('end_page'))
+
+@app.route('/end', methods=['GET'])
+def end_page():
+    currID = request.cookies.get('userID')
+    if request.method == 'GET':
+        if currID is not None:
+            return render_template('end.html')
+        else:
+            return render_template('500.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
