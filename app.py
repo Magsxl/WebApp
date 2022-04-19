@@ -42,10 +42,10 @@ class Pytania(db.Model):
 class Pytania1_4(Pytania, db.Model):
     Person_ID = db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
 
-class Pytania5_9(Pytania, db.Model):
+class Pytania5_12(Pytania, db.Model):
     Person_ID = db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
 
-class Pytania10_15(Pytania, db.Model):
+class Pytania13_15(Pytania, db.Model):
     Person_ID = db.Column(db.Integer, db.ForeignKey('ankietowany.ID'), nullable=False)
 
 class ankietowany(db.Model):
@@ -58,8 +58,8 @@ class ankietowany(db.Model):
     Zawod = db.Column(db.String(200), nullable=True)
     Timestamp = db.Column(db.DateTime, default=datetime.now)
     question1_4 = db.relationship('Pytania1_4', backref='ankietowany', lazy=True)
-    question5_9 = db.relationship('Pytania5_9', backref='ankietowany', lazy=True)
-    question10_15 = db.relationship('Pytania10_15', backref='ankietowany', lazy=True)
+    question5_9 = db.relationship('Pytania5_12', backref='ankietowany', lazy=True)
+    question10_15 = db.relationship('Pytania13_15', backref='ankietowany', lazy=True)
 
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
@@ -104,12 +104,12 @@ def poll_page():
                 data2 = Pytania1_4(Nr_Pytania=int(key[7:]), Odpowiedz=questionDict[key], Person_ID=currID)
                 db.session.add(data2)
                 db.session.commit()
-            elif int(key[7:]) < 10:
-                data2 = Pytania5_9(Nr_Pytania=int(key[7:]), Odpowiedz=questionDict[key], Person_ID=currID)
+            elif int(key[7:]) < 13:
+                data2 = Pytania5_12(Nr_Pytania=int(key[7:]), Odpowiedz=questionDict[key], Person_ID=currID)
                 db.session.add(data2)
                 db.session.commit()
             elif int(key[7:]) < 16:
-                data2 = Pytania10_15(Nr_Pytania=int(key[7:]), Odpowiedz=questionDict[key], Person_ID=currID)
+                data2 = Pytania13_15(Nr_Pytania=int(key[7:]), Odpowiedz=questionDict[key], Person_ID=currID)
                 db.session.add(data2)
                 db.session.commit()
         return redirect(url_for('end_page'))
