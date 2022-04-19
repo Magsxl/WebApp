@@ -25,512 +25,377 @@
         <h4><i>15 pytań</i></h4>
     </div>
     <div class="containter-fluid pt-1 pl-5">
-     <form method="POST" action="/poll">
+     <form class="needs-validation" method="POST" action="/poll" novalidate>
         <div class="container-fluid mt-3 pl-3"> <!--Questions-->
             <p><i>1. Czy wiedziałeś, że drony są używane do pomiarów jakości powietrza, zanieczyszczeń, szkodliwych emisji i smogu?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio1.dyes" value="option1">
-                <label class="form-check-label" for="radio1">Zdecydowanie Tak</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio1.myes" value="option2">
-                <label class="form-check-label" for="radio2">Raczej tak</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio1.idk" value="option3">
-                <label class="form-check-label">Nie wiem</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio1.mno" value="option4">
-                <label class="form-check-label">Raczej nie</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio1.dno" value="option5">
-                <label class="form-check-label">Zdecydowanie nie</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>2. Czy wiedziałeś, że drony są używane do kontroli ozonu?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio2.dyes" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio2.myes" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio2.idk1" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio2.mno" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio2.dno" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>3. Czy wiedziałeś, że drony są używane do monitorowania dzikiej przyrody, zachowań zwierząt?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio3" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio3" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio3" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio3" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio3" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>4. Czy wiedziałeś, że drony są używane do kontroli zachowań owadów?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio4" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
-            </div>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>            </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio4" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio4" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio4" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio4" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>5. Czy wiedziałeś, że drony są używane do monitorowania erozji środowiska?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio5" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio5" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio5" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio5" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio5" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>6. Czy wiedziałeś, że drony są używane do monitorowania stanu zbiorników wodnych, rozlewisk i stanów powodziowych?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio6" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio6" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio6" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio6" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio6" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>7. Czy wiedziałeś, że drony są używane do monitorowania stanu ryb, flory i fauny wodnej?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio7" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio7" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio7" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio7" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio7" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>8. Czy wiedziałeś, że drony są używane do monitorowania stanu zaśnieżenia terenów zagrożonych lawinami?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio8" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio8" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio8" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio8" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio8" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>9. Czy wiedziałeś, że drony są używane do wykrywania ognisk i rozprzestrzeniających się pożarów?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio9" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio9" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio9" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio9" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio9" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>10. Czy zgadzasz się ze stwierdzeniem, że drony mogą płoszyć zwierzęta?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio10" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio10" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio10" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio10" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio10" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>11. Czy zgadzasz się ze stwierdzeniem, że drony w ekologii są przyszłościowe?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio11" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio11" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio11" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio11" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio11" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>12. Czy zgadzasz się ze stwierdzeniem, że drony mogą kolidować z innymi urządzeniami/pojazdami w powietrzu?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio12" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio12" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio12" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio12" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio12" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>13. Czy jest dla ciebie ważna ochrona środowiska?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio13" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio13" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio13" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio13" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio13" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>14. Czy uważasz, że drony powinny być wykorzystane w ekologii?</i></p>
             <div class="form-check">
-                <p>a)
                 <input type="radio" class="form-check-input" id="radio1" name="optradio14" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
                 <input type="radio" class="form-check-input" id="radio2" name="optradio14" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio14" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
             <div class="form-check">
-                <p>d)
                 <input type="radio" class="form-check-input" id="radio4" name="optradio14" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio14" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
             <br>
             <p><i>15. Czy wiedziałeś, że wykorzystanie dronów staje się coraz bardziej powszechne w ochronie środowiska?</i></p>
             <div class="form-check">
-                <p>a)
-                <input type="radio" class="form-check-input" id="radio1" name="optradio15" value="option1">
-                <label class="form-check-label" for="radio1">{{dyes}}</label>
-                </p>
+                <input type="radio" class="form-check-input" id="radio1 invalidCheck" name="optradio15" value="option1" required>
+                <label class="form-check-label" for="radio1 invalidCheck">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <p>b)
-                <input type="radio" class="form-check-input" id="radio2" name="optradio15" value="option2">
-                <label class="form-check-label" for="radio2">{{myes}}</label>
-                </p>
+                <input type="radio" class="form-check-input" id="radio2 invalidCheck" name="optradio15" value="option2">
+                <label class="form-check-label" for="radio2">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
-                <p>c)
                 <input type="radio" class="form-check-input" id="radio3" name="optradio15" value="option3">
-                <label class="form-check-label">{{idk}}</label>
-                </p>
+                <label class="form-check-label">c) {{idk}}</label>
             </div>    
-            <div class="form-check">
-                <p>d)
+            <div class="form-check">           
                 <input type="radio" class="form-check-input" id="radio4" name="optradio15" value="option4">
-                <label class="form-check-label">{{mno}}</label>
-                </p>
+                <label class="form-check-label">d) {{mno}}</label>
             </div>
             <div class="form-check">
-                <p>e)
                 <input type="radio" class="form-check-input" id="radio5" name="optradio15" value="option5">
-                <label class="form-check-label">{{dno}}</label>
-                </p>
+                <label class="form-check-label">e) {{dno}}</label>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Wyślij</button>
      </form>
     </div>
-    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
   </body>
+  <script>
+      (function () {
+        'use strict'
+        
+        var forms = document.querySelectorAll('.needs-validation')
+        
+        Array.prototype.slice.call(forms)
+          .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+              }
+    
+              form.classList.add('was-validated')
+            }, false)
+          })
+      })()
+    </script>
   <style>
       body {
-          background-color: #212121;
-          color:white;
+          background-color: #cccc;
+          color:black;
       }
 
       .btn-primary {
           margin-top: 20px;
           margin-left: 25px;
           margin-bottom: 25px;
+      }
+
+      label {
+          margin-bottom: 0.75%;
       }
   </style>
 </html>
