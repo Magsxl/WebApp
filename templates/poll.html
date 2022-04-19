@@ -9,40 +9,40 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
     <title>Ankieta</title>
   </head>
-  <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <body class="bg">
+    <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Ocena korzyści i zagrożeń z wykorzystania dronów dla celów ekologicznych</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+          <a class="navbar-brand" href="/">Ocena korzyści i zagrożeń z wykorzystania dronów dla celów ekologicznych</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
           </button>
         </div>
     </nav>
-    <div class="container-fluid center">
+    <div class="container-fluid" id="pollTitle">
         <h3>Ankieta dotycząca tego co w tytule ;)</h3>
     </div>
-    <div class="container-fluid center">
+    <div class="container-fluid" id="pollTitle">
         <h4><i>15 pytań</i></h4>
     </div>
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-interval="10000000000">
+    <div id="myCarousel" class="carousel slide" data-bs-interval="10000000000">
         <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="10"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="11"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="12"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="13"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="14"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="6"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="7"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="8"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="9"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="10"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="11"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="12"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="13"></button>
+          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="14"></button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner"> <!--Questions-->
           <form class="needs-validation" method="POST" action="/poll" novalidate>
           <div class="carousel-item active">
             <p><i>1. Czy wiedziałeś, że drony są używane do pomiarów jakości powietrza, zanieczyszczeń, szkodliwych emisji i smogu?</i></p>
@@ -388,22 +388,21 @@
                 <input type="radio" class="form-check-input" id="radio5" name="optradio15" value="option5">
                 <label class="form-check-label">e) {{dno}}</label>
             </div>
+            <div class="d-grid gap-2 col-2" id="btm">
+                <button type="submit" class="btn btn-primary btn-success btn-lg">Wyślij</button>
+            </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
           <span class="carousel-control-next-icon"></span>
           <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="center">
-        <button type="submit" class="btn btn-primary">Wyślij</button>
-    </div>
     </form>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
   <script>
@@ -424,40 +423,54 @@
             }, false)
           })
       })()
-    </script>
+  </script>
   <style>
-      body {
-          background-color: #cccc;
-          color:black;
-      }
+    html, body {
+        color:white;
+        margin:0;
+        height: 100%;
+        overflow: hidden;
+    }
 
-      .btn-primary {
-          margin-top: 20px;
-          margin-left: 25px;
-          margin-bottom: 25px;
-      }
+    label {
+        margin-bottom: 0.75%;
+    }
 
-      label {
-          margin-bottom: 0.75%;
-      }
+    .bg {
+        background-image: url("static/csr.jpg");
+        height: 100%; 
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 
-      .carousel {
-          top: 0;
-          left: 0;
-          min-width: 100%;
-          height: 550px;
-          max-height: 550px;
-          width: auto;
-      }
+    .navbar-brand {
+        margin-left: 1.7%;
+    }
 
-      .carousel-item {
-         margin-top: 5%;
-         left: 28%;
-      }
+    .carousel {
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 550px;
+        max-height: 550px;
+        width: auto;
+    }
+
+    .carousel-item {
+        margin-top: 4%;
+        left: 28%;
+    }
       
-      .center {
-          margin-top: 3%;
-          text-align: center;
-      }
+    #pollTitle {
+        margin-top:5%;
+        text-align: center;
+    }
+
+    #btm {
+        margin-top: 3%;
+        margin-left: 10%;
+        margin-bottom: 2%;
+    }
   </style>
 </html>
