@@ -13,9 +13,6 @@
     <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Ocena korzyści i zagrożeń z wykorzystania dronów dla celów ekologicznych</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-          </button>
         </div>
     </nav>
     <div id="pollTitle">
@@ -425,6 +422,13 @@
       })()
   </script>
   <style>
+    @media (max-width: 481px) { 
+        p {
+            inline-size: 250px;
+            overflow-wrap: break-word;
+        }
+    }
+
     html, body {
         color:white;
         margin:0;
@@ -453,6 +457,7 @@
         font-weight: bold;
         font-size: 29px;
         margin-left: 1%;
+        white-space: normal;
     }
 
     .carousel {
