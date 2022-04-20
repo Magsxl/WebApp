@@ -117,7 +117,9 @@ def end_page():
     currID = request.cookies.get('userID')
     if request.method == 'GET':
         if currID is not None:
-            return render_template('end.html')
+             resp = make_response(render_template('end.html'))
+             resp.set_cookie('userID','',expires=0)
+             return resp
         else:
             return render_template('500.html')
 
