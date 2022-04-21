@@ -365,19 +365,19 @@
       })()
   </script>
   <style>
-      html, body {
-        margin:0;
-        font-family: Poppins, sans-serif;
+      body {
         background-image: url("static/csr.jpg");
-        height: 100%; 
+        min-height: 100vh; 
+        background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
         background-size: cover;
+        font-family: Poppins, sans-serif;
     }
 
     label {
         margin-bottom: 0.75%;
+        display:flex;        
     }
 
     .navbar-brand {
@@ -391,11 +391,9 @@
         color:black;
         padding-top: 1%;
         padding-left: 7.4%;
-        display: flex;
     }
 
     #forms .form-check {
-        display: block;
         margin-right: 45%;
         margin-left: 5px;
         transition: all 0.3s ease;
