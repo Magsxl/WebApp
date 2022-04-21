@@ -11,7 +11,7 @@
     <title>Ankieta</title>
   </head>
   <div class="row">
-  <body class="bg">
+  <body>
     <div class="column left">  
     <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container-fluid">
@@ -367,21 +367,17 @@
   <style>
       html, body {
         margin:0;
-        height: 100%;
         font-family: Poppins, sans-serif;
-    }
-
-    label {
-        margin-bottom: 0.75%;
-    }
-
-    .bg {
         background-image: url("static/csr.jpg");
         height: 100%; 
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+    }
+
+    label {
+        margin-bottom: 0.75%;
     }
 
     .navbar-brand {
@@ -454,7 +450,7 @@
 
     @media (max-width: 481px) { 
         p {
-            inline-size: 250px;
+            inline-size:auto;
             overflow-wrap: break-word;
         }
 
