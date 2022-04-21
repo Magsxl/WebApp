@@ -7,45 +7,23 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
     <title>Ankieta</title>
   </head>
+  <div class="row">
   <body class="bg">
+    <div class="column left">  
     <nav class="navbar navbar-expand-sm navbar-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">Ocena korzyści i zagrożeń z wykorzystania dronów dla celów ekologicznych</a>
         </div>
     </nav>
-    <div id="pollTitle">
-        <h3>Ankieta dotycząca tego co w tytule ;)</h3>
-    </div>
-    <div id="pollTitle">
-        <h4 style="margin-left:8%"><i>15 pytań</i></h4>
-    </div>
-    <div id="myCarousel" class="carousel slide" data-bs-interval="10000000000">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="4"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="5"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="6"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="7"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="8"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="9"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="10"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="11"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="12"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="13"></button>
-          <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="14"></button>
-        </div>
-        <div class="carousel-inner"> <!--Questions-->
+        <div id="forms"> <!--Questions-->
           <form class="needs-validation" method="POST" action="/poll" novalidate>
-          <div class="carousel-item active">
-            <p><i>1. Czy jest dla Ciebie ważna ochrona środowiska?</i></p>
+            <p>1. Czy jest dla Ciebie ważna ochrona środowiska?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio1 invalidCheck" name="optradio1" value="option1" required>
-                <label class="form-check-label" for="radio1 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio1" name="optradio1" value="option1" required>
+                <label class="form-check-label" for="radio1">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio2" name="optradio1" value="option2">
@@ -63,12 +41,10 @@
                 <input type="radio" class="form-check-input" id="radio5" name="optradio1" value="option5">
                 <label class="form-check-label" for="radio5">e) {{dno}}</label>
             </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>2. Czy wiedziałeś, że coraz częściej sięga się po drony w ochronie środowiska?</i></p>
+            <p>2. Czy wiedziałeś, że coraz częściej sięga się po drony w ochronie środowiska?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio21 invalidCheck" name="optradio2" value="option1" required>
-                <label class="form-check-label" for="radio21 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio21" name="optradio2" value="option1" required>
+                <label class="form-check-label" for="radio21">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio22" name="optradio2" value="option2">
@@ -86,12 +62,10 @@
                 <input type="radio" class="form-check-input" id="radio25" name="optradio2" value="option5">
                 <label class="form-check-label" for="radio25">e) {{dno}}</label>
             </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>3. Czy wiedziałeś, że drony znajdują coraz powszechniejsze użycie w codziennym życiu,<br>np. przesyłki kurierskie, policyjne?</i></p>
+            <p>3. Czy wiedziałeś, że drony znajdują coraz powszechniejsze użycie w codziennym życiu,<br>np. przesyłki kurierskie, policyjne?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio31 invalidCheck" name="optradio3" value="option1" required>
-                <label class="form-check-label" for="radio31 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio31" name="optradio3" value="option1" required>
+                <label class="form-check-label" for="radio31">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio32" name="optradio3" value="option2">
@@ -108,13 +82,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio35" name="optradio3" value="option5">
                 <label class="form-check-label" for="radio35">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>4. Czy kiedykolwiek miałeś styczność z wykorzystaniem dronów jak w poprzednich pytaniach?</i></p>
+            </div>          
+            <p>4. Czy kiedykolwiek miałeś styczność z wykorzystaniem dronów jak w poprzednich pytaniach?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio41 invalidCheck" name="optradio4" value="option1" required>
-                <label class="form-check-label" for="radio41 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio41" name="optradio4" value="option1" required>
+                <label class="form-check-label" for="radio41">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio42" name="optradio4" value="option2">
@@ -131,13 +103,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio45" name="optradio4" value="option5">
                 <label class="form-check-label" for="radio45">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>5. Czy uważasz, że rozpowszechnienie dronów może stworzyć zagrożenia, które obecnie<br>nie występują?</i></p>
+            </div>          
+            <p>5. Czy uważasz, że rozpowszechnienie dronów może stworzyć zagrożenia, które obecnie<br>nie występują?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio51 invalidCheck" name="optradio5" value="option1" required>
-                <label class="form-check-label" for="radio51 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio51" name="optradio5" value="option1" required>
+                <label class="form-check-label" for="radio51">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio52" name="optradio5" value="option2">
@@ -154,13 +124,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio55" name="optradio5" value="option5">
                 <label class="form-check-label" for="radio55">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>6. Czy uważasz, że drony powinny być używane do sztucznego kształtowania<br>systemów biologicznych?</i></p>
+            </div>         
+            <p>6. Czy uważasz, że drony powinny być używane do sztucznego kształtowania<br>systemów biologicznych?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio61 invalidCheck" name="optradio6" value="option1" required>
-                <label class="form-check-label" for="radio61 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio61" name="optradio6" value="option1" required>
+                <label class="form-check-label" for="radio61">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio62" name="optradio6" value="option2">
@@ -177,13 +145,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio65" name="optradio6" value="option5">
                 <label class="form-check-label" for="radio65">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>7. Czy uważasz, że wykorzystanie dronów w eksplorowaniu ciężko dostępnych miejsc, może mieć<br>negatywny wpływ na tamtejsze środowisko?</i></p>
+            </div>          
+            <p>7. Czy uważasz, że wykorzystanie dronów w eksplorowaniu ciężko dostępnych miejsc, może mieć<br>negatywny wpływ na tamtejsze środowisko?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio71 invalidCheck" name="optradio7" value="option1" required>
-                <label class="form-check-label" for="radio71 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio71" name="optradio7" value="option1" required>
+                <label class="form-check-label" for="radio71">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio72" name="optradio7" value="option2">
@@ -200,13 +166,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio75" name="optradio7" value="option5">
                 <label class="form-check-label" for="radio75">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>8. Czy uważasz, że drony mogą stanowić zagrożenie dla dzikich zwierząt?</i></p>
+            </div>          
+            <p>8. Czy uważasz, że drony mogą stanowić zagrożenie dla dzikich zwierząt?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio81 invalidCheck" name="optradio8" value="option1" required>
-                <label class="form-check-label" for="radio81 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio81" name="optradio8" value="option1" required>
+                <label class="form-check-label" for="radio81">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio82" name="optradio8" value="option2">
@@ -223,13 +187,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio85" name="optradio8" value="option5">
                 <label class="form-check-label" for="radio85">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>9. Czy uważasz, że wykorzystanie dronów w monitorowaniu pól rolniczych, lasów oraz nabrzeży<br>może budzić dyskomfort u osób przebywających na wymienionych terenach?</i></p>
+            </div>          
+            <p>9. Czy uważasz, że wykorzystanie dronów w monitorowaniu pól rolniczych, lasów oraz nabrzeży<br>może budzić dyskomfort u osób przebywających na wymienionych terenach?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio91 invalidCheck" name="optradio9" value="option1" required>
-                <label class="form-check-label" for="radio91 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio91" name="optradio9" value="option1" required>
+                <label class="form-check-label" for="radio91">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio92" name="optradio9" value="option2">
@@ -246,13 +208,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio95" name="optradio9" value="option5">
                 <label class="form-check-label" for="radio95">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>10. Czy uważasz, że drony są tańszym rozwiązaniem niż obecnie używane środki<br>w ochronie środowiska?</i></p>
+            </div>          
+            <p>10. Czy uważasz, że drony są tańszym rozwiązaniem niż obecnie używane środki<br>w ochronie środowiska?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio101 invalidCheck" name="optradio10" value="option1" required>
-                <label class="form-check-label" for="radio101 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio101" name="optradio10" value="option1" required>
+                <label class="form-check-label" for="radio101">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio102" name="optradio10" value="option2">
@@ -269,13 +229,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio105" name="optradio10" value="option5">
                 <label class="form-check-label" for="radio105">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>11. Czy uważasz, że drony w ochronie środowiska powinny być eksploatowane<br>przez prywatne instytucje?</i></p>
+            </div>          
+            <p>11. Czy uważasz, że drony w ochronie środowiska powinny być eksploatowane<br>przez prywatne instytucje?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio111 invalidCheck" name="optradio11" value="option1" required>
-                <label class="form-check-label" for="radio111 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio111" name="optradio11" value="option1" required>
+                <label class="form-check-label" for="radio111">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio112" name="optradio11" value="option2">
@@ -292,13 +250,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio115" name="optradio11" value="option5">
                 <label class="form-check-label" for="radio115">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>12. Czy uważasz, że wykorzystanie dronów w ochronie środowiska powinno zostać<br>dofinansowane przez państwo?</i></p>
+            </div>          
+            <p>12. Czy uważasz, że wykorzystanie dronów w ochronie środowiska powinno zostać<br>dofinansowane przez państwo?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio121 invalidCheck" name="optradio12" value="option1" required>
-                <label class="form-check-label" for="radio121 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio121" name="optradio12" value="option1" required>
+                <label class="form-check-label" for="radio121">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio122" name="optradio12" value="option2">
@@ -315,13 +271,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio125" name="optradio12" value="option5">
                 <label class="form-check-label" for="radio125">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>13. Czy uważasz, że powinno się zwiększyć wykorzystanie dronów w ochronie<br>środowiska oraz monitorowaniu zagrożeń z tym związanych?</i></p>
+            </div>          
+            <p>13. Czy uważasz, że powinno się zwiększyć wykorzystanie dronów w ochronie<br>środowiska oraz monitorowaniu zagrożeń z tym związanych?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio131 invalidCheck" name="optradio13" value="option1" required>
-                <label class="form-check-label" for="radio131 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio131" name="optradio13" value="option1" required>
+                <label class="form-check-label" for="radio131">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio132" name="optradio13" value="option2">
@@ -338,13 +292,11 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio135" name="optradio13" value="option5">
                 <label class="form-check-label" for="radio135">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>14. Czy uważasz, że wykorzystanie dronów przynosi więcej korzyści niż zagrożeń?</i></p>
+            </div>          
+            <p>14. Czy uważasz, że wykorzystanie dronów przynosi więcej korzyści niż zagrożeń?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio141 invalidCheck" name="optradio14" value="option1" required>
-                <label class="form-check-label" for="radio141 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio141" name="optradio14" value="option1" required>
+                <label class="form-check-label" for="radio141">a) {{dyes}}</label>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio142" name="optradio14" value="option2">
@@ -361,16 +313,14 @@
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="radio145" name="optradio14" value="option5">
                 <label class="form-check-label" for="radio145">e) {{dno}}</label>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <p><i>15. Czy uważasz, że używanie dronów w ochronie środowiska jest przyszłościowe?</i></p>
+            </div>          
+            <p>15. Czy uważasz, że używanie dronów w ochronie środowiska jest przyszłościowe?</p>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio151 invalidCheck" name="optradio15" value="option1" required>
-                <label class="form-check-label" for="radio151 invalidCheck">a) {{dyes}}</label>
+                <input type="radio" class="form-check-input" id="radio151" name="optradio15" value="option1" required>
+                <label class="form-check-label" for="radio151">a) {{dyes}}</label>
             </div>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="radio152 invalidCheck" name="optradio15" value="option2">
+                <input type="radio" class="form-check-input" id="radio152" name="optradio15" value="option2">
                 <label class="form-check-label" for="radio152">b) {{myes}}</label>
             </div>  
             <div class="form-check"> 
@@ -385,23 +335,16 @@
                 <input type="radio" class="form-check-input" id="radio155" name="optradio15" value="option5">
                 <label class="form-check-label" for="radio155">e) {{dno}}</label>
             </div>
-            <div class="d-grid gap-2 col-2" id="btm">
+            <div class="d-grid gap-2 col-3" id="btm">
                 <button type="submit" class="btn btn-primary btn-success btn-lg">Wyślij</button>
             </div>
-          </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-    </div>
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  </div>
   </body>
+  </div>
+  <div class="column right"></div>
   <script>
       (function () {
         'use strict'
@@ -422,22 +365,10 @@
       })()
   </script>
   <style>
-    @media (max-width: 481px) { 
-        p {
-            inline-size: 250px;
-            overflow-wrap: break-word;
-        }
-    }
-
-    html, body {
-        color:white;
+      html, body {
         margin:0;
         height: 100%;
-        overflow: hidden;
-    }
-
-    h3 {
-        font-family: Merriweather, serif;
+        font-family: Poppins, sans-serif;
     }
 
     label {
@@ -449,35 +380,50 @@
         height: 100%; 
         background-position: center;
         background-repeat: no-repeat;
+        background-attachment: fixed;
         background-size: cover;
     }
 
     .navbar-brand {
-        font-family: Merriweather, serif;
-        font-weight: bold;
-        font-size: 29px;
+        font-family: 'Abril Fatface', serif;
+        font-size: 27px;
         margin-left: 1%;
         white-space: normal;
     }
 
-    .carousel {
-        top: 2%;
-        left: 0;
-        min-width: 100%;
-        height: 450px;
-        max-height: 450px;
-        width: auto;
-    }
-
-    #myCarousel {
-        background-color: rgba(255,255,255,0.5);
-    }
-
-    .carousel-item {
+    #forms {
         color:black;
-        font-family: "Open Sans", sans-serif;
-        margin-top: 4.5%;
-        left: 13.4%;
+        padding-top: 1%;
+        padding-left: 7.4%;
+        display: flex;
+    }
+
+    #forms .form-check {
+        display: block;
+        margin-right: 45%;
+        margin-left: 5px;
+        transition: all 0.3s ease;
+    }
+
+    #forms .form-check:hover {
+        border: 3px outset rgba(255,255,255,0.5);
+        background-color: rgba(255,255,255,0.5);
+        border-radius: 5px;
+    }
+
+    #forms .form-check input {
+        margin-left:0.02%;
+    }
+    
+    #forms .form-check label {
+        padding-left: 5px;
+    }
+
+    p {
+        margin-top:25px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        font-weight: bold;
     }
       
     #pollTitle {
@@ -486,9 +432,36 @@
     }
 
     #btm {
-        margin-top: 1%;
-        margin-left: 26.5%;
-        margin-bottom: 2%;
+        margin-top: 3%;
+        margin-left: 35%;
+        margin-bottom: 5%;
     }
+
+    input[type='radio']:checked {
+        background-color: green;
+        box-shadow: inset 0 0 5px 0px green;
+        border: 1px solid green;
+        border-radius:50%;
+        outline:none;
+    }
+
+    .left {
+        box-shadow: inset 0 0 0 1000px rgba(255,255,255,0.3);
+        padding-bottom: 20px;
+        width: 55%;
+        height: 100%;
+    }
+
+    @media (max-width: 481px) { 
+        p {
+            inline-size: 250px;
+            overflow-wrap: break-word;
+        }
+
+        .left {
+            width: 100%;
+        }
+    }
+
   </style>
 </html>
