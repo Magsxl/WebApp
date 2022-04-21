@@ -1,16 +1,16 @@
 from flask import Flask, make_response, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import pymysql
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:Najlepszy@localhost/ankieta'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Najlepszy@localhost/ankieta'
 app.config['SQLALCHEMY_POOL_RECYCLE'] = 299
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = "sekretny klucz"
 
 db = SQLAlchemy(app)
 currID = 0
-table_names2 = ['pytania1_4', 'pytania5_9', 'pytania10_15']
 
 # 1 = dyes, 2 = myes, 3 = idk, 4 = mno, 5 = dno
 questionDict = {
