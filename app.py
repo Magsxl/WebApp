@@ -70,7 +70,7 @@ def home_page():
         place = request.form['place']
         job = request.form['job']
         now = datetime.now()
-        data = ankietowany(Status = status, Wiek = age, Plec = sex, Pochodzenie = place, Zawod = job, Timestamp = now)
+        data = ankietowany(Status = status, Wiek = age, Plec = sex, Pochodzenie = place, Zawod = job.title(), Timestamp = now)
         db.session.add(data)
         db.session.commit()
         count = ankietowany.query.count()
@@ -124,4 +124,4 @@ def end_page():
             return render_template('500.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
