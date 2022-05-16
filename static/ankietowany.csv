@@ -1,0 +1,59 @@
+Column1;Column2;Column3;Column4;Column5;Column6;Column7
+1;Student;21;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-22 16:34:34
+2;Student;21;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-22 16:34:53
+3;Student;20;F;Miasteczko - poni¿ej 30 tys. mieszkañców;Brak;2022-04-22 16:34:55
+4;Student;22;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-22 16:36:05
+5;Student;21;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Sprzedawca;2022-04-22 16:38:57
+6;Pracownik etatowy;52;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Nauczyciel;2022-04-22 16:39:20
+7;Student;21;F;Wieœ;Brak;2022-04-22 16:41:00
+8;Student;21;F;Ma³e miasto - miêdzy 30 tys. a 100 tys. mieszkañców;Brak;2022-04-22 16:41:39
+9;Student;21;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-22 16:44:31
+10;Student;22;F;Ma³e miasto - miêdzy 30 tys. a 100 tys. mieszkañców;Turystyka;2022-04-22 16:46:13
+11;Student;21;M;Miasto - miêdzy 100 tys. a 250 tys. mieszkañców;Brak;2022-04-22 16:47:07
+12;Student;21;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-22 16:47:26
+13;Student;21;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Sta¿ysta Ds. Rozwoju Oprogramowania;2022-04-22 16:48:24
+14;Pracownik etatowy;58;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Nauczyciel;2022-04-22 16:50:49
+15;Pracownik etatowy;62;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Pracownik Administracji;2022-04-22 16:51:25
+16;Pracownik etatowy;38;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Nauczyciel ;2022-04-22 16:52:48
+17;Student;22;M;Miasto - miêdzy 100 tys. a 250 tys. mieszkañców;Brak;2022-04-22 16:58:11
+18;Student;22;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-22 17:02:28
+19;Student;23;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-22 17:08:33
+20;Student;22;F;Miasteczko - poni¿ej 30 tys. mieszkañców;Brak;2022-04-22 17:08:35
+21;Student;20;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-22 17:50:51
+22;Pracownik etatowy;55;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Mechanik Precyzyjny;2022-04-22 17:52:43
+23;Student;22;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-22 18:09:07
+24;Pracownik etatowy;33;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Nauczyciel ;2022-04-22 18:48:39
+25;Student;23;M;Ma³e miasto - miêdzy 30 tys. a 100 tys. mieszkañców;Brak;2022-04-23 17:33:29
+26;Student;23;F;Miasto - miêdzy 100 tys. a 250 tys. mieszkañców;Doradca W Salonie Optycznym;2022-04-23 17:39:53
+27;Student;23;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-23 17:40:20
+28;Student;24;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak ;2022-04-23 17:44:31
+29;Student;22;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-23 19:26:14
+30;Student;24;M;Ma³e miasto - miêdzy 30 tys. a 100 tys. mieszkañców;Handlowiec ;2022-04-23 22:31:50
+31;Pracownik etatowy;25;M;Miasteczko - poni¿ej 30 tys. mieszkañców;Technolog-Konstruktor;2022-04-23 22:37:58
+32;Pracownik etatowy;24;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Dzia³ Realizacji Zamówieñ ;2022-04-24 06:19:18
+33;Pracownik etatowy;51;F;Miasteczko - poni¿ej 30 tys. mieszkañców;Pracownik Biurowy;2022-04-24 06:43:34
+34;Pracownik etatowy;25;M;Miasteczko - poni¿ej 30 tys. mieszkañców;Analityk Rynków Kapita³owych;2022-04-24 08:22:54
+35;Student;24;F;Miasteczko - poni¿ej 30 tys. mieszkañców;Technik Ekonomista;2022-04-24 09:15:17
+36;Pracownik etatowy;25;M;Wieœ;Grafik;2022-04-24 09:16:41
+37;Student;22;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-24 10:45:45
+38;Student;20;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-24 10:47:57
+39;Student;24;M;Wieœ;Korepetytor;2022-04-24 12:44:17
+40;Pracownik etatowy;37;F;Wieœ;Pracownik Biurowy ;2022-04-24 16:12:35
+41;Pracownik etatowy;28;M;Ma³e miasto - miêdzy 30 tys. a 100 tys. mieszkañców;Planista Produkcji;2022-04-24 16:40:33
+42;Student;23;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-24 17:39:00
+43;Student;23;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-04-24 17:45:30
+44;Student;23;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Field Service Engineer ;2022-04-24 17:48:15
+45;Student;22;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak ;2022-04-24 21:45:45
+46;Uczeñ;18;M;Miasteczko - poni¿ej 30 tys. mieszkañców;Brak;2022-04-25 11:48:03
+47;Pracownik etatowy;56;M;Ma³e miasto - miêdzy 30 tys. a 100 tys. mieszkañców;Przedsiebiorca;2022-05-03 09:02:54
+48;Pracownik etatowy;26;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Lekarz;2022-05-03 10:00:32
+49;Pracownik etatowy;26;M;Ma³e miasto - miêdzy 30 tys. a 100 tys. mieszkañców;Lekarz;2022-05-03 10:03:46
+50;Student;25;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-05-07 14:14:34
+51;Student;22;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-05-07 14:24:01
+52;Student;23;M;Miasteczko - poni¿ej 30 tys. mieszkañców;Brak;2022-05-07 15:18:53
+53;Student;22;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-05-07 15:20:58
+54;Student;22;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-05-07 16:07:29
+55;Student;21;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;2022-05-07 16:10:30
+56;Student;21;F;Ma³e miasto - miêdzy 30 tys. a 100 tys. mieszkañców;Brak;2022-05-07 16:59:48
+57;Student;22;M;Wieœ;Brak;2022-05-07 20:15:27
+58;Student;22;F;Ma³e miasto - miêdzy 30 tys. a 100 tys. mieszkañców;Brak;2022-05-15 13:50:01
