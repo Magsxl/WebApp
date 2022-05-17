@@ -1,11 +1,21 @@
 import pandas as pd
 import numpy as np
+from sqlalchemy import create_engine
 
-#Read files
+sqlEngine = create_engine('mysql+pymysql://mgasxl:Najlepszy@magsxl.mysql.pythonanywhere-services.com/magsxl$ankieta', pool_recycle=3600)
+
+dbConn = sqlEngine.connect()
+
+ankietowany = pd.read_sql("select*from ankietowany", dbConn)
+pytania1_4 = pd.read_sql("select*from pytania1_4", dbConn)
+pytania5_12 = pd.read_sql("select*from pytania5_12", dbConn)
+pytania13_15 = pd.read_sql("select*from pytania13_15", dbConn)
+
+'''Read files
 ankietowany = pd.read_csv(r'static/ankietowany.csv', encoding='cp1252', sep=";", index=False)
 pytania1_4 = pd.read_csv(r'static/pytania1_4.csv', encoding='cp1252', sep=";", index=False)
 pytania5_12 = pd.read_csv(r'static/pytania5_12.csv', encoding='cp1252', sep=";", index=False)
-pytania13_15 = pd.read_csv(r'static/pytania13_15.csv', encoding='cp1252', sep=";", index=False)
+pytania13_15 = pd.read_csv(r'static/pytania13_15.csv', encoding='cp1252', sep=";", index=False)'''
 
 #Prints how many rows have null values
 #print(len(ankietowany[pd.isnull(ankietowany.Zawod)]))
