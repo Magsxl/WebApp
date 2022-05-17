@@ -1,6 +1,7 @@
+ID;Status;Wiek;Plec;Pochodzenie;Zawod;Timestamp
 1;Student;21;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;22.04.2022 16:34
 2;Student;21;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;22.04.2022 16:34
-3;Student;20;F;Miasteczko - poni¿ej 30 tys. mieszkañców;Brak;22.04.2022 16:34
+3;Student;20;F;Miasteczko - poni¿ej 30 tys. mieszkañców;;22.04.2022 16:34
 4;Student;22;M;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Brak;22.04.2022 16:36
 5;Student;21;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Sprzedawca;22.04.2022 16:38
 6;Pracownik etatowy;52;F;Du¿e miasto - powy¿ej 250 tys. mieszkañców;Nauczyciel;22.04.2022 16:39
