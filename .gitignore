@@ -177,3 +177,4 @@ Database.py
 include/
 .vscode/
 static/
+static/ankietowany.csv
