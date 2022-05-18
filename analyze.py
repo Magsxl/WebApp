@@ -1,4 +1,3 @@
-from operator import is_not
 import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
