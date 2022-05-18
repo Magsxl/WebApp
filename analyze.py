@@ -20,13 +20,16 @@ pytania13_15 = pd.read_csv(r'static/pytania13_15.csv', encoding='cp1252', sep=";
 #Prints how many rows have null values
 #print(len(ankietowany[pd.isnull(ankietowany.Zawod)]))
 
+#Translate string values to int
 ankietowany.loc[ankietowany['Pochodzenie'].str.contains('250'), 'Pochodzenie'] = '250'
 ankietowany.loc[ankietowany['Pochodzenie'].str.contains('100'), 'Pochodzenie'] = '100'
 ankietowany.loc[ankietowany['Pochodzenie'].str.contains('Miasteczko'), 'Pochodzenie'] = '30'
 ankietowany.loc[ankietowany['Pochodzenie'].str.contains('Wie'), 'Pochodzenie'] = '0'
 
+#Cleaning useless white spaces
 ankietowany['Zawod'] = ankietowany['Zawod'].str.strip()
 
+#Counting people without job
 print("Liczba osób bez zawodu: " + str(ankietowany.Zawod.str.count("Brak").sum()))
 
 print(ankietowany)
