@@ -25,14 +25,16 @@ ankietowany.loc[ankietowany['Pochodzenie'].str.contains('100'), 'Pochodzenie'] =
 ankietowany.loc[ankietowany['Pochodzenie'].str.contains('Miasteczko'), 'Pochodzenie'] = '30'
 ankietowany.loc[ankietowany['Pochodzenie'].str.contains('Wie'), 'Pochodzenie'] = '0'
 
+ankietowany['Zawod'] = ankietowany['Zawod'].str.strip()
+
+print("Liczba osób bez zawodu: " + str(ankietowany.Zawod.str.count("Brak").sum()))
+
 print(ankietowany)
 
-'''
 #Check if there's empty row and fill it
 if ankietowany['Zawod'].isnull:
     ankietowany['Zawod'] = ankietowany['Zawod'].fillna("Brak")
 
-
-
+'''
 #Write corrected version to csv
 ankietowany.to_csv(r'static/ankietowany_out.csv', encoding='cp1252', sep=";", index=False)'''
