@@ -1,3 +1,4 @@
+from operator import is_not
 import pandas as pd
 import numpy as np
 from sqlalchemy import create_engine
@@ -41,6 +42,12 @@ pytania13_15 = pytania13_15.pivot(index="Nr_Pytania", columns=["Person_ID"], val
 #concate questions
 pytania = [pytania1_4, pytania5_12, pytania13_15]
 result = pd.concat(pytania)
+
+#Clean ankietowany without answers
+countCol = len(result.columns)
+for x in range(1,countCol):
+    if not x in result.iloc[0]:
+        ankietowany = ankietowany[ankietowany.ID != x]
 
 #Check if there's empty row and fill it
 if ankietowany['Zawod'].isnull:
