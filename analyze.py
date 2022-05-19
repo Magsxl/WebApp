@@ -57,4 +57,12 @@ ankietowany.to_csv(r'static/ankietowany_out.csv', encoding='cp1252', sep=";", in
 
 #Data exploration
 ankietowany.info()
-ankietowany.describe()
+print(ankietowany.describe())
+
+for x in range(1,countCol):
+    colName = result.columns[x]
+    if x in result.iloc[0]:
+        print("Answers for: " + str(colName) + "\n" + str(result[x].values))
+    else:
+        print("Value: " + str(x) + " doesn't exist")
+
