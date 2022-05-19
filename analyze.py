@@ -1,5 +1,7 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+import seaborn as sns
 from sqlalchemy import create_engine
 '''
 sqlEngine = create_engine('mysql+pymysql://mgasxl:Najlepszy@magsxl.mysql.pythonanywhere-services.com/magsxl$ankieta', pool_recycle=3600)
@@ -56,13 +58,20 @@ result.to_csv(r'static/result.csv', encoding='cp1252', sep=";")
 ankietowany.to_csv(r'static/ankietowany_out.csv', encoding='cp1252', sep=";", index=False)
 
 #Data exploration
-ankietowany.info()
-print(ankietowany.describe())
-
+#ankietowany.info()
+#print(ankietowany.describe())
+'''
 for x in range(1,countCol):
     colName = result.columns[x]
     if x in result.iloc[0]:
         print("Answers for: " + str(colName) + "\n" + str(result[x].values))
     else:
         print("Value: " + str(x) + " doesn't exist")
-
+'''
+#All answers distribution
+resultValues = {'Odpowiedzi': ['Zdecydowanie tak', 'Raczej tak', 'Nie wiem', 'Raczej nie', 'Zdecydowanie nie'], 'Ilosc': [(result.values==1).sum(), (result.values==2).sum(), (result.values==3).sum(), (result.values==4).sum(), (result.values==5).sum()]}
+resultVal = pd.DataFrame(data=resultValues)
+f, ax = plt.subplots(figsize=(10,7))
+resultValPlot = sns.barplot(x='Odpowiedzi', y='Ilosc', palette="Blues_d", data=resultVal)
+resultValPlot.bar_label(resultValPlot.containers[0])
+plt.show()
