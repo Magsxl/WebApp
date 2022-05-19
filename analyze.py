@@ -13,7 +13,6 @@ pytania13_15 = pd.read_sql("select*from pytania13_15", dbConn)'''
 
 #Read files for testing purposes 
 ankietowany = pd.read_csv(r'static/ankietowany.csv', encoding='cp1252', sep=";")
-ankietowanyID = pd.read_csv(r'static/ankietowany.csv', encoding='cp1252', sep=";", usecols = ['ID'])
 pytania1_4 = pd.read_csv(r'static/pytania1_4.csv', encoding='cp1252', sep=";", usecols = ['Nr_Pytania', 'Odpowiedz', 'Person_ID'])
 pytania5_12 = pd.read_csv(r'static/pytania5_12.csv', encoding='cp1252', sep=";", usecols = ['Nr_Pytania', 'Odpowiedz', 'Person_ID'])
 pytania13_15 = pd.read_csv(r'static/pytania13_15.csv', encoding='cp1252', sep=";", usecols = ['Nr_Pytania', 'Odpowiedz', 'Person_ID'])
@@ -31,7 +30,7 @@ ankietowany.loc[ankietowany['Pochodzenie'].str.contains('Wie'), 'Pochodzenie'] =
 ankietowany['Zawod'] = ankietowany['Zawod'].str.strip()
 
 #Counting people without job
-print("Liczba osób bez zawodu: " + str(ankietowany.Zawod.str.count("Brak").sum()))
+#print("Liczba osób bez zawodu: " + str(ankietowany.Zawod.str.count("Brak").sum()))
 
 #Pivot questions
 pytania1_4 = pytania1_4.pivot(index="Nr_Pytania", columns=["Person_ID"], values="Odpowiedz")
@@ -55,3 +54,7 @@ if ankietowany['Zawod'].isnull:
 #Write corrected and concated version to csv
 result.to_csv(r'static/result.csv', encoding='cp1252', sep=";")
 ankietowany.to_csv(r'static/ankietowany_out.csv', encoding='cp1252', sep=";", index=False)
+
+#Data exploration
+ankietowany.info()
+ankietowany.describe()
