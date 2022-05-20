@@ -2,9 +2,8 @@ import os
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from pyparsing import col
 import seaborn as sns
-from sqlalchemy import Column, create_engine
+from sqlalchemy import create_engine
 '''
 sqlEngine = create_engine('mysql+pymysql://mgasxl:Najlepszy@magsxl.mysql.pythonanywhere-services.com/magsxl$ankieta', pool_recycle=3600)
 
@@ -70,6 +69,11 @@ ankietowany.to_csv(r'static/ankietowany_out.csv', encoding='cp1252', sep=";", in
 #Get only students from ankietowany
 ankStudent = ankietowany[ankietowany['Status']=='Student']
 ankStudent = ankStudent[['ID', 'Status']]
+
+#Get only workers from ankietowany
+ankPE = ankietowany[ankietowany['Status']=='Pracownik etatowy']
+ankPE = ankPE[['ID', 'Status']]
+print(ankPE)
 
 #DATA EXPLORATION
 '''
@@ -172,4 +176,32 @@ f, ax = plt.subplots(figsize=(10,7))
 sns.barplot(data=dfAnswer).set(title="Odpowiedzi studentów")
 plt.show()
 
+#Get answers of only workers
+answersPE=pd.DataFrame()
+resPE = []
+for x in range(1,countCol):
+    if x in ankPE['ID']:
+        if x in result.columns:
+            fileName = "resPE"+str(x)
+            resX = result[x].apply(pd.Series)
+            resX.columns=['Odpowiedzi']
+            resX.to_csv(fileName+".csv", encoding='cp1252', sep=";")
+            resX = pd.read_csv(fileName+".csv", encoding='cp1252', sep=";")
+            answersPE = answersPE.append(resX)
+            os.remove(fileName+".csv")
+answersPE.to_csv('static/answersPE.csv', encoding='cp1252', sep=";", index=False)
 
+#Plot workers answers
+answersPE = pd.read_csv('static/answersPE.csv', encoding='cp1252', sep=";")
+ansPECount1 = answersPE.Odpowiedzi.eq(1).sum()
+ansPECount2 = answersPE.Odpowiedzi.eq(2).sum()
+ansPECount3 = answersPE.Odpowiedzi.eq(3).sum()
+ansPECount4 = answersPE.Odpowiedzi.eq(4).sum()
+ansPECount5 = answersPE.Odpowiedzi.eq(5).sum()
+
+answerCountPE = {'Zdecydowanie tak': ansPECount1, 'Raczej tak': ansPECount2, 'Nie wiem': ansPECount3, 'Raczej nie': ansPECount4, 'Zdecydowanie nie': ansPECount5}
+
+dfAnswerPE = pd.DataFrame.from_dict(answerCountPE, orient='index', columns = ['Ilosc odpowiedzi']).T
+f, ax = plt.subplots(figsize=(10,7))
+sns.barplot(data=dfAnswerPE).set(title="Odpowiedzi pracowników etatowych")
+plt.show()
