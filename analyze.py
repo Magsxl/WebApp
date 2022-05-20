@@ -90,6 +90,30 @@ plt.figure()
 resPartPlot5 = sns.barplot(data=ans5).set(title='Zdecydowanie nie')
 plt.show()
 
-#Answers for first question
-#ques1 = result.eq(1).sum(axis=1).to_frame().T
-#print(result.loc[result[1]==1])
+
+#Answers for every question
+quesDict = {
+    1: "Czy jest dla Ciebie ważna ochrona środowiska?",
+    2: "Czy wiedziałeś, że coraz częściej sięga się po drony w ochronie środowiska?",
+    3: "Czy wiedziałeś, że drony znajdują coraz powszechniejsze użycie w codziennym życiu, np. przesyłki kurierskie, policyjne?",
+    4: "Czy kiedykolwiek miałeś styczność z wykorzystaniem dronów jak w poprzednich pytaniach?",
+    5: "Czy uważasz, że rozpowszechnienie dronów może stworzyć zagrożenia, które obecnie nie występują?",
+    6: "Czy uważasz, że drony powinny być używane do sztucznego kształtowania systemów biologicznych?",
+    7: "Czy uważasz, że wykorzystanie dronów w eksplorowaniu ciężko dostępnych miejsc, może mieć negatywny wpływ na tamtejsze środowisko?",
+    8: "Czy uważasz, że drony mogą stanowić zagrożenie dla dzikich zwierząt?",
+    9: "Czy uważasz, że wykorzystanie dronów w monitorowaniu pól rolniczych, lasów oraz nabrzeży może budzić dyskomfort u osób przebywających na wymienionych terenach?",
+    10: "Czy uważasz, że drony są tańszym rozwiązaniem niż obecnie używane środki w ochronie środowiska?",
+    11: "Czy uważasz, że drony w ochronie środowiska powinny być eksploatowane przez prywatne instytucje?",
+    12: "Czy uważasz, że wykorzystanie dronów w ochronie środowiska powinno zostać dofinansowane przez państwo?",
+    13: "Czy uważasz, że powinno się zwiększyć wykorzystanie dronów w ochronie środowiska oraz monitorowaniu zagrożeń z tym związanych?",
+    14: "Czy uważasz, że wykorzystanie dronów przynosi więcej korzyści niż zagrożeń?",
+    15: "Czy uważasz, że używanie dronów w ochronie środowiska jest przyszłościowe?",
+}
+
+for row in range (0,14):
+    quesAns = pd.DataFrame(result.apply(pd.Series.value_counts, axis=1).fillna(0))
+    rowAns = quesAns.iloc[row].to_frame().T
+    rowAns.columns=['Zdecydowanie tak', 'Raczej tak', 'Nie wiem', 'Raczej nie', 'Zdecydowanie nie']
+    f, ax = plt.subplots(figsize=(15,6))
+    sns.barplot(data=rowAns).set(title=quesDict[row+1])
+    plt.show()
