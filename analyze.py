@@ -1,3 +1,4 @@
+from matplotlib import container
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -114,6 +115,8 @@ for row in range (0,14):
     quesAns = pd.DataFrame(result.apply(pd.Series.value_counts, axis=1).fillna(0))
     rowAns = quesAns.iloc[row].to_frame().T
     rowAns.columns=['Zdecydowanie tak', 'Raczej tak', 'Nie wiem', 'Raczej nie', 'Zdecydowanie nie']
+    rowAns = rowAns.astype('int')
     f, ax = plt.subplots(figsize=(15,6))
-    sns.barplot(data=rowAns).set(title=quesDict[row+1])
+    rows = sns.barplot(data=rowAns).set(title=quesDict[row+1])
+    plt.yticks([5,10,15,20,25,30])
     plt.show()
