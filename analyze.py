@@ -1,4 +1,3 @@
-from matplotlib import container
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -46,14 +45,31 @@ countCol = len(result.columns)
 for x in range(1,countCol):
     if not x in result.iloc[0]:
         ankietowany = ankietowany[ankietowany.ID != x]
+print(ankietowany)
 
 #Check if there's empty row and fill it
 if ankietowany['Zawod'].isnull:
     ankietowany['Zawod'] = ankietowany['Zawod'].fillna("Brak")
 
+#Clean status that occurs less than 2
+#statOcc = ankietowany.Status.value_counts()
+#ankietowany = ankietowany[ankietowany.Status.isin(statOcc.index[statOcc.gt(1)])]
+
+#to_Do
+#Clean answers that don't have ankietowany
+#for x in range(1,countCol):
+#    if not x in ankietowany['ID']:
+#        print(result.columns[x])
+#result.info()
+
 #Write corrected and concated version to csv
 result.to_csv(r'static/result.csv', encoding='cp1252', sep=";")
 ankietowany.to_csv(r'static/ankietowany_out.csv', encoding='cp1252', sep=";", index=False)
+
+#Get only students from ankietowany
+ankStudent = ankietowany[ankietowany['Status']=='Student']
+ankStudent = ankStudent[['ID', 'Status']]
+print(ankStudent)
 
 #DATA EXPLORATION
 '''
@@ -110,7 +126,7 @@ quesDict = {
     14: "Czy uważasz, że wykorzystanie dronów przynosi więcej korzyści niż zagrożeń?",
     15: "Czy uważasz, że używanie dronów w ochronie środowiska jest przyszłościowe?",
 }
-
+'''
 for row in range (0,14):
     quesAns = pd.DataFrame(result.apply(pd.Series.value_counts, axis=1).fillna(0))
     rowAns = quesAns.iloc[row].to_frame().T
@@ -120,3 +136,16 @@ for row in range (0,14):
     rows = sns.barplot(data=rowAns).set(title=quesDict[row+1])
     plt.yticks([5,10,15,20,25,30])
     plt.show()
+'''
+#Answers distribution for people
+ankStatus = ankietowany['Status'].value_counts().to_frame().T
+sns.barplot(data=ankStatus)
+plt.show()
+
+#coś tam
+for x in range(1,countCol):
+    if ((ankietowany['ID'] == x)&(ankietowany['Status'] == 'Student')).any() == True:
+        print(x)
+
+
+
