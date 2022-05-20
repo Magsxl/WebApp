@@ -1,6 +1,8 @@
+import os
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+from pyparsing import col
 import seaborn as sns
 from sqlalchemy import Column, create_engine
 '''
@@ -45,7 +47,6 @@ countCol = len(result.columns)
 for x in range(1,countCol):
     if not x in result.iloc[0]:
         ankietowany = ankietowany[ankietowany.ID != x]
-print(ankietowany)
 
 #Check if there's empty row and fill it
 if ankietowany['Zawod'].isnull:
@@ -69,7 +70,6 @@ ankietowany.to_csv(r'static/ankietowany_out.csv', encoding='cp1252', sep=";", in
 #Get only students from ankietowany
 ankStudent = ankietowany[ankietowany['Status']=='Student']
 ankStudent = ankStudent[['ID', 'Status']]
-print(ankStudent)
 
 #DATA EXPLORATION
 '''
@@ -126,7 +126,7 @@ quesDict = {
     14: "Czy uważasz, że wykorzystanie dronów przynosi więcej korzyści niż zagrożeń?",
     15: "Czy uważasz, że używanie dronów w ochronie środowiska jest przyszłościowe?",
 }
-'''
+
 for row in range (0,14):
     quesAns = pd.DataFrame(result.apply(pd.Series.value_counts, axis=1).fillna(0))
     rowAns = quesAns.iloc[row].to_frame().T
@@ -136,16 +136,40 @@ for row in range (0,14):
     rows = sns.barplot(data=rowAns).set(title=quesDict[row+1])
     plt.yticks([5,10,15,20,25,30])
     plt.show()
-'''
+
 #Answers distribution for people
 ankStatus = ankietowany['Status'].value_counts().to_frame().T
 sns.barplot(data=ankStatus)
 plt.show()
 
-#coś tam
+#Get answers of only students
+answers=pd.DataFrame()
+res = []
 for x in range(1,countCol):
-    if ((ankietowany['ID'] == x)&(ankietowany['Status'] == 'Student')).any() == True:
-        print(x)
+    if x in ankStudent['ID']:
+        if x in result.columns:
+            fileName = "res"+str(x)
+            resX = result[x].apply(pd.Series)
+            resX.columns=['Odpowiedzi']
+            resX.to_csv(fileName+".csv", encoding='cp1252', sep=";")
+            resX = pd.read_csv(fileName+".csv", encoding='cp1252', sep=";")
+            answers = answers.append(resX)
+            os.remove(fileName+".csv")
+answers.to_csv('static/answers.csv', encoding='cp1252', sep=";", index=False)
 
+#Plot students answers
+answers = pd.read_csv('static/answers.csv', encoding='cp1252', sep=";")
+ansCount1 = answers.Odpowiedzi.eq(1).sum()
+ansCount2 = answers.Odpowiedzi.eq(2).sum()
+ansCount3 = answers.Odpowiedzi.eq(3).sum()
+ansCount4 = answers.Odpowiedzi.eq(4).sum()
+ansCount5 = answers.Odpowiedzi.eq(5).sum()
+
+answerCount = {'Zdecydowanie tak': ansCount1, 'Raczej tak': ansCount2, 'Nie wiem': ansCount3, 'Raczej nie': ansCount4, 'Zdecydowanie nie': ansCount5}
+
+dfAnswer = pd.DataFrame.from_dict(answerCount, orient='index', columns = ['Ilosc odpowiedzi']).T
+f, ax = plt.subplots(figsize=(10,7))
+sns.barplot(data=dfAnswer).set(title="Odpowiedzi studentów")
+plt.show()
 
 
