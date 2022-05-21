@@ -5,6 +5,7 @@ import numpy as np
 import seaborn as sns
 from sqlalchemy import create_engine
 from sklearn import preprocessing
+from mlxtend.frequent_patterns import apriori, association_rules
 '''
 sqlEngine = create_engine('mysql+pymysql://mgasxl:Najlepszy@magsxl.mysql.pythonanywhere-services.com/magsxl$ankieta', pool_recycle=3600)
 
@@ -52,6 +53,8 @@ ankietowany.loc[ankietowany['Plec'].str.contains('F', na=False), 'Plec'] = 1
 ankietowany.loc[ankietowany['Status'].str.contains('Student', na=False), 'Status'] = 0
 ankietowany.loc[ankietowany['Status'].str.contains('Pracownik', na=False), 'Status'] = 1
 ankietowany.loc[ankietowany['Status'].str.contains('Ucz', na=False), 'Status'] = 2
+ankietowany.loc[ankietowany['Zawod'].str.contains('Brak', na=False), 'Zawod'] = 0
+ankietowany.loc[ankietowany['Zawod'].str.contains('[A-Za-z]', na=False), 'Zawod'] = 1
 
 #Check if there's empty row and fill it
 if ankietowany['Zawod'].isnull:
@@ -95,7 +98,7 @@ resultVal = pd.DataFrame(data=resultValues)
 f, ax = plt.subplots(figsize=(10,7))
 resultValPlot = sns.barplot(x='Odpowiedzi', y='Ilosc', palette="Blues_d", data=resultVal)
 resultValPlot.bar_label(resultValPlot.containers[0])
-plt.show()
+#plt.show()
 
 #Answers distribution
 ans1 = result.eq(1).sum(axis=1).to_frame().T
@@ -114,7 +117,7 @@ plt.figure()
 resPartPlot4 = sns.barplot(data=ans4).set(title='Raczej nie')
 plt.figure()
 resPartPlot5 = sns.barplot(data=ans5).set(title='Zdecydowanie nie')
-plt.show()
+#plt.show()
 
 #Answers for every question
 quesDict = {
@@ -143,13 +146,13 @@ for row in range (0,15):
     f, ax = plt.subplots(figsize=(15,6))
     rows = sns.barplot(data=rowAns).set(title=quesDict[row])
     plt.yticks([5,10,15,20,25,30])
-    plt.show()
+    #plt.show()
 
 #Answers distribution for people
 ankStatus = ankietowany['Status'].value_counts().to_frame().T
 ankStatus.columns = ['Student', 'Pracownik etatowy', 'Uczeń']
 ankStat = sns.barplot(data=ankStatus)
-plt.show()
+#plt.show()
 
 #Get answers of only students
 answers=pd.DataFrame()
@@ -178,7 +181,7 @@ answerCount = {'Zdecydowanie tak': ansCount1, 'Raczej tak': ansCount2, 'Nie wiem
 dfAnswer = pd.DataFrame.from_dict(answerCount, orient='index', columns = ['Ilosc odpowiedzi']).T
 f, ax = plt.subplots(figsize=(10,7))
 sns.barplot(data=dfAnswer).set(title="Odpowiedzi studentów")
-plt.show()
+#plt.show()
 
 #Get answers of only workers
 answersPE=pd.DataFrame()
@@ -207,17 +210,14 @@ answerCountPE = {'Zdecydowanie tak': ansPECount1, 'Raczej tak': ansPECount2, 'Ni
 dfAnswerPE = pd.DataFrame.from_dict(answerCountPE, orient='index', columns = ['Ilosc odpowiedzi']).T
 f, ax = plt.subplots(figsize=(10,7))
 sns.barplot(data=dfAnswerPE).set(title="Odpowiedzi pracowników etatowych")
-plt.show()
+#plt.show()
 
 #Get all answers for particular questions
 nrAns = pd.DataFrame(result.values).T
 nrAns.columns = ['NrPytania_1', 'NrPytania_2', 'NrPytania_3', 'NrPytania_4', 'NrPytania_5', 'NrPytania_6', 'NrPytania_7', 'NrPytania_8', 'NrPytania_9', 'NrPytania_10', 'NrPytania_11', 'NrPytania_12', 'NrPytania_13', 'NrPytania_14', 'NrPytania_15']
-
 ankietowanyAns = pd.concat([ankietowany, nrAns], axis=1, join="inner")
 ankietowanyAns = ankietowanyAns.drop(['Timestamp'], axis=1)
 ankietowanyAns.to_csv('static/allAns.csv', encoding='cp1252', sep=";", index=False)
-
-
 '''
 #Sklearn
 col_values = ankietowanyAns.columns
@@ -228,7 +228,12 @@ for col in col_values:
     print(encoder.classes_)
 print(ankietowanyAns1)
 '''
-
+#Create heatmap with correlation between people and anwsers
+ankietowanyAns['Status'] = pd.to_numeric(ankietowany['Status'])
+ankietowanyAns['Plec'] = pd.to_numeric(ankietowany['Plec'])
+ankietowanyAns['Pochodzenie'] = pd.to_numeric(ankietowany['Pochodzenie'])
+ankietowanyAns['ID'] = ankietowanyAns['ID'].astype(object)
 plt.figure(figsize=(20,20),dpi = 100)
 sns.heatmap(ankietowanyAns.corr(),annot = ankietowanyAns.corr())
-plt.show()
+#plt.show()
+
