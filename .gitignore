@@ -178,3 +178,4 @@ include/
 .vscode/
 static/
 static/ankietowany.csv
+*.dot
