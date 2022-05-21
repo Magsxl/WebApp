@@ -1,10 +1,13 @@
 import os
+import subprocess
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
+from sklearn.tree import DecisionTreeClassifier, export_graphviz
 from sqlalchemy import create_engine
-from sklearn import preprocessing
+from dtreeviz.trees import dtreeviz
+from sklearn import preprocessing, tree
 from mlxtend.frequent_patterns import apriori, association_rules
 '''
 sqlEngine = create_engine('mysql+pymysql://mgasxl:Najlepszy@magsxl.mysql.pythonanywhere-services.com/magsxl$ankieta', pool_recycle=3600)
@@ -217,6 +220,7 @@ nrAns = pd.DataFrame(result.values).T
 nrAns.columns = ['NrPytania_1', 'NrPytania_2', 'NrPytania_3', 'NrPytania_4', 'NrPytania_5', 'NrPytania_6', 'NrPytania_7', 'NrPytania_8', 'NrPytania_9', 'NrPytania_10', 'NrPytania_11', 'NrPytania_12', 'NrPytania_13', 'NrPytania_14', 'NrPytania_15']
 ankietowanyAns = pd.concat([ankietowany, nrAns], axis=1, join="inner")
 ankietowanyAns = ankietowanyAns.drop(['Timestamp'], axis=1)
+ankietowanyAns = ankietowanyAns.drop(['ID'], axis=1)
 ankietowanyAns.to_csv('static/allAns.csv', encoding='cp1252', sep=";", index=False)
 '''
 #Sklearn
@@ -232,8 +236,29 @@ print(ankietowanyAns1)
 ankietowanyAns['Status'] = pd.to_numeric(ankietowany['Status'])
 ankietowanyAns['Plec'] = pd.to_numeric(ankietowany['Plec'])
 ankietowanyAns['Pochodzenie'] = pd.to_numeric(ankietowany['Pochodzenie'])
-ankietowanyAns['ID'] = ankietowanyAns['ID'].astype(object)
+
 plt.figure(figsize=(20,20),dpi = 100)
 sns.heatmap(ankietowanyAns.corr(),annot = ankietowanyAns.corr())
 #plt.show()
 
+'''
+#Create apriori algorythm
+frq_anwsers = apriori(ankietowanyAns, min_support=0.05, use_colnames=True)
+
+rules = association_rules(frq_anwsers, metric ="lift", min_threshold = 1)
+rules = rules.sort_values(['confidence', 'lift'], ascending =[False, False])
+
+print(rules.head())
+'''
+
+#Decision tree
+features = list(ankietowanyAns.columns[:5])
+y = ankietowanyAns['NrPytania_1']
+x = ankietowanyAns[features].values
+dt = DecisionTreeClassifier(min_samples_split=10, random_state=99)
+dt.fit(x,y)
+text_rep = tree.export_text(dt)
+print(text_rep)
+my_list = ['1','2','3','4','5']
+viz = dtreeviz(dt, x, y, target_name="NrPytania_1", feature_names=features, class_names=list(my_list))
+viz.view()
