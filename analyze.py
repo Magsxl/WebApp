@@ -1,13 +1,12 @@
 import os
 import matplotlib.pyplot as plt
 import pandas as pd
-import numpy as np
 import seaborn as sns
-from sklearn.tree import DecisionTreeClassifier, export_graphviz
+from sklearn.tree import DecisionTreeClassifier
 from sqlalchemy import create_engine
 from dtreeviz.trees import dtreeviz
 from sklearn import preprocessing, tree
-from mlxtend.frequent_patterns import apriori, association_rules
+#from mlxtend.frequent_patterns import apriori, association_rules
 '''
 sqlEngine = create_engine('mysql+pymysql://mgasxl:Najlepszy@magsxl.mysql.pythonanywhere-services.com/magsxl$ankieta', pool_recycle=3600)
 
@@ -72,14 +71,6 @@ ankPE = ankietowany[ankietowany['Status']==1]
 ankPE = ankPE[['ID', 'Status']]
 
 #DATA EXPLORATION
-'''
-for x in range(1,countCol):
-    colName = result.columns[x]
-    if x in result.iloc[0]:
-        print("Answers for: " + str(colName-1) + "\n" + str(result[x].values))
-    else:
-        print("Value: " + str(x) + " doesn't exist")
-'''
 #All answers distribution
 resultValues = {'Odpowiedzi': ['Zdecydowanie tak', 'Raczej tak', 'Nie wiem', 'Raczej nie', 'Zdecydowanie nie'], 'Ilosc': [(result.values==1).sum(), (result.values==2).sum(), (result.values==3).sum(), (result.values==4).sum(), (result.values==5).sum()]}
 resultVal = pd.DataFrame(data=resultValues)
@@ -107,7 +98,7 @@ plt.figure()
 resPartPlot5 = sns.barplot(data=ans5).set(title='Zdecydowanie nie')
 #plt.show()
 
-#Answers for every question
+#Dictionary with questions
 quesDict = {
     0: "Czy jest dla Ciebie ważna ochrona środowiska?",
     1: "Czy wiedziałeś, że coraz częściej sięga się po drony w ochronie środowiska?",
@@ -126,6 +117,7 @@ quesDict = {
     14: "Czy uważasz, że używanie dronów w ochronie środowiska jest przyszłościowe?",
 }
 
+#Answers for every question
 for row in range (0,15):
     quesAns = pd.DataFrame(result.apply(pd.Series.value_counts, axis=1).fillna(0))
     rowAns = quesAns.iloc[row].to_frame().T
@@ -216,15 +208,16 @@ ankietowanyAns['Pochodzenie'] = pd.to_numeric(ankietowany['Pochodzenie'])
 plt.figure(figsize=(20,20),dpi = 100)
 sns.heatmap(ankietowanyAns.corr(),annot = ankietowanyAns.corr())
 #plt.show()
-'''
+
 #Create apriori algorythm
+'''
 frq_anwsers = apriori(ankietowanyAns, min_support=0.05, use_colnames=True)
 
 rules = association_rules(frq_anwsers, metric ="lift", min_threshold = 1)
 rules = rules.sort_values(['confidence', 'lift'], ascending =[False, False])
 
-print(rules.head())
-'''
+print(rules.head())'''
+
 #Decision tree
 features = list(ankietowanyAns.columns[:5])
 y = ankietowanyAns['NrPytania_4']
