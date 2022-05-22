@@ -1,5 +1,4 @@
 import os
-import subprocess
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -27,9 +26,6 @@ pytania13_15 = pd.read_csv(r'static/pytania13_15.csv', encoding='cp1252', sep=";
 
 #Cleaning useless white spaces
 ankietowany['Zawod'] = ankietowany['Zawod'].str.strip()
-
-#Counting people without job
-#print("Liczba osób bez zawodu: " + str(ankietowany.Zawod.str.count("Brak").sum()))
 
 #Pivot questions
 pytania1_4 = pytania1_4.pivot(index="Nr_Pytania", columns=["Person_ID"], values="Odpowiedz")
@@ -62,17 +58,6 @@ ankietowany.loc[ankietowany['Zawod'].str.contains('[A-Za-z]', na=False), 'Zawod'
 #Check if there's empty row and fill it
 if ankietowany['Zawod'].isnull:
     ankietowany['Zawod'] = ankietowany['Zawod'].fillna("Brak")
-
-#Clean status that occurs less than 2
-#statOcc = ankietowany.Status.value_counts()
-#ankietowany = ankietowany[ankietowany.Status.isin(statOcc.index[statOcc.gt(1)])]
-
-#to_Do
-#Clean answers that don't have ankietowany
-#for x in range(1,countCol):
-#    if not x in ankietowany['ID']:
-#        print(result.columns[x])
-#result.info()
 
 #Write corrected and concated version to csv
 result.to_csv(r'static/result.csv', encoding='cp1252', sep=";")
@@ -222,16 +207,7 @@ ankietowanyAns = pd.concat([ankietowany, nrAns], axis=1, join="inner")
 ankietowanyAns = ankietowanyAns.drop(['Timestamp'], axis=1)
 ankietowanyAns = ankietowanyAns.drop(['ID'], axis=1)
 ankietowanyAns.to_csv('static/allAns.csv', encoding='cp1252', sep=";", index=False)
-'''
-#Sklearn
-col_values = ankietowanyAns.columns
-ankietowanyAns1 = ankietowanyAns
-encoder = preprocessing.LabelEncoder()
-for col in col_values:
-    ankietowanyAns1[col] = encoder.fit_transform(ankietowany[col])
-    print(encoder.classes_)
-print(ankietowanyAns1)
-'''
+
 #Create heatmap with correlation between people and anwsers
 ankietowanyAns['Status'] = pd.to_numeric(ankietowany['Status'])
 ankietowanyAns['Plec'] = pd.to_numeric(ankietowany['Plec'])
@@ -240,7 +216,6 @@ ankietowanyAns['Pochodzenie'] = pd.to_numeric(ankietowany['Pochodzenie'])
 plt.figure(figsize=(20,20),dpi = 100)
 sns.heatmap(ankietowanyAns.corr(),annot = ankietowanyAns.corr())
 #plt.show()
-
 '''
 #Create apriori algorythm
 frq_anwsers = apriori(ankietowanyAns, min_support=0.05, use_colnames=True)
@@ -250,15 +225,16 @@ rules = rules.sort_values(['confidence', 'lift'], ascending =[False, False])
 
 print(rules.head())
 '''
-
 #Decision tree
 features = list(ankietowanyAns.columns[:5])
-y = ankietowanyAns['NrPytania_1']
+y = ankietowanyAns['NrPytania_4']
 x = ankietowanyAns[features].values
-dt = DecisionTreeClassifier(min_samples_split=10, random_state=99)
+print(x)
+dt = DecisionTreeClassifier(min_samples_split=15, random_state=99)
 dt.fit(x,y)
-text_rep = tree.export_text(dt)
-print(text_rep)
-my_list = ['1','2','3','4','5']
-viz = dtreeviz(dt, x, y, target_name="NrPytania_1", feature_names=features, class_names=list(my_list))
-viz.view()
+class_list = ['Zdecydowanie tak','Raczej tak','Nie wiem','Raczej nie','Zdecydowanie nie']
+plt.figure(figsize=(20,20), dpi=50)
+tree.plot_tree(dt, feature_names=features, class_names=list(class_list), rounded=True, filled=True)
+#plt.show()
+viz = dtreeviz(dt, x, y, target_name="NrPytania_4", feature_names=features, class_names=list(class_list))
+#viz.view()
