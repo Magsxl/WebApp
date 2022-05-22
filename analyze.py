@@ -5,8 +5,9 @@ import seaborn as sns
 from sklearn.tree import DecisionTreeClassifier
 from sqlalchemy import create_engine
 from dtreeviz.trees import dtreeviz
-from sklearn import preprocessing, tree
-#from mlxtend.frequent_patterns import apriori, association_rules
+from sklearn import tree
+
+#Reading tables from MySQL Database
 '''
 sqlEngine = create_engine('mysql+pymysql://mgasxl:Najlepszy@magsxl.mysql.pythonanywhere-services.com/magsxl$ankieta', pool_recycle=3600)
 
@@ -77,7 +78,7 @@ resultVal = pd.DataFrame(data=resultValues)
 f, ax = plt.subplots(figsize=(10,7))
 resultValPlot = sns.barplot(x='Odpowiedzi', y='Ilosc', palette="Blues_d", data=resultVal)
 resultValPlot.bar_label(resultValPlot.containers[0])
-#plt.show()
+plt.show()
 
 #Answers distribution
 ans1 = result.eq(1).sum(axis=1).to_frame().T
@@ -96,7 +97,7 @@ plt.figure()
 resPartPlot4 = sns.barplot(data=ans4).set(title='Raczej nie')
 plt.figure()
 resPartPlot5 = sns.barplot(data=ans5).set(title='Zdecydowanie nie')
-#plt.show()
+plt.show()
 
 #Dictionary with questions
 quesDict = {
@@ -126,13 +127,13 @@ for row in range (0,15):
     f, ax = plt.subplots(figsize=(15,6))
     rows = sns.barplot(data=rowAns).set(title=quesDict[row])
     plt.yticks([5,10,15,20,25,30])
-    #plt.show()
+    plt.show()
 
 #Answers distribution for people
 ankStatus = ankietowany['Status'].value_counts().to_frame().T
 ankStatus.columns = ['Student', 'Pracownik etatowy', 'Uczeń']
 ankStat = sns.barplot(data=ankStatus)
-#plt.show()
+plt.show()
 
 #Get answers of only students
 answers=pd.DataFrame()
@@ -161,7 +162,7 @@ answerCount = {'Zdecydowanie tak': ansCount1, 'Raczej tak': ansCount2, 'Nie wiem
 dfAnswer = pd.DataFrame.from_dict(answerCount, orient='index', columns = ['Ilosc odpowiedzi']).T
 f, ax = plt.subplots(figsize=(10,7))
 sns.barplot(data=dfAnswer).set(title="Odpowiedzi studentów")
-#plt.show()
+plt.show()
 
 #Get answers of only workers
 answersPE=pd.DataFrame()
@@ -190,7 +191,7 @@ answerCountPE = {'Zdecydowanie tak': ansPECount1, 'Raczej tak': ansPECount2, 'Ni
 dfAnswerPE = pd.DataFrame.from_dict(answerCountPE, orient='index', columns = ['Ilosc odpowiedzi']).T
 f, ax = plt.subplots(figsize=(10,7))
 sns.barplot(data=dfAnswerPE).set(title="Odpowiedzi pracowników etatowych")
-#plt.show()
+plt.show()
 
 #Get all answers for particular questions
 nrAns = pd.DataFrame(result.values).T
@@ -207,27 +208,17 @@ ankietowanyAns['Pochodzenie'] = pd.to_numeric(ankietowany['Pochodzenie'])
 
 plt.figure(figsize=(20,20),dpi = 100)
 sns.heatmap(ankietowanyAns.corr(),annot = ankietowanyAns.corr())
-#plt.show()
-
-#Create apriori algorythm
-'''
-frq_anwsers = apriori(ankietowanyAns, min_support=0.05, use_colnames=True)
-
-rules = association_rules(frq_anwsers, metric ="lift", min_threshold = 1)
-rules = rules.sort_values(['confidence', 'lift'], ascending =[False, False])
-
-print(rules.head())'''
+plt.show()
 
 #Decision tree
 features = list(ankietowanyAns.columns[:5])
 y = ankietowanyAns['NrPytania_4']
 x = ankietowanyAns[features].values
-print(x)
-dt = DecisionTreeClassifier(min_samples_split=15, random_state=99)
+dt = DecisionTreeClassifier(min_samples_split=10, random_state=99)
 dt.fit(x,y)
 class_list = ['Zdecydowanie tak','Raczej tak','Nie wiem','Raczej nie','Zdecydowanie nie']
 plt.figure(figsize=(20,20), dpi=50)
 tree.plot_tree(dt, feature_names=features, class_names=list(class_list), rounded=True, filled=True)
-#plt.show()
+plt.show()
 viz = dtreeviz(dt, x, y, target_name="NrPytania_4", feature_names=features, class_names=list(class_list))
-#viz.view()
+viz.view()
