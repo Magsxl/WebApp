@@ -79,7 +79,7 @@ resultVal = pd.DataFrame(data=resultValues)
 f, ax = plt.subplots(figsize=(10,7))
 resultValPlot = sns.barplot(x='Odpowiedzi', y='Ilosc', palette="Blues_d", data=resultVal)
 resultValPlot.bar_label(resultValPlot.containers[0])
-#plt.show()
+plt.show()
 
 #Answers distribution
 ans1 = result.eq(1).sum(axis=1).to_frame().T
@@ -98,7 +98,7 @@ plt.figure()
 resPartPlot4 = sns.barplot(data=ans4).set(title='Raczej nie')
 plt.figure()
 resPartPlot5 = sns.barplot(data=ans5).set(title='Zdecydowanie nie')
-#plt.show()
+plt.show()
 
 #Dictionary with questions
 quesDict = {
@@ -128,13 +128,13 @@ for row in range (0,15):
     f, ax = plt.subplots(figsize=(15,6))
     rows = sns.barplot(data=rowAns).set(title=quesDict[row])
     plt.yticks([5,10,15,20,25,30])
-    #plt.show()
+    plt.show()
 
 #Answers distribution for people
 ankStatus = ankietowany['Status'].value_counts().to_frame().T
 ankStatus.columns = ['Student', 'Pracownik etatowy', 'Uczeń']
 ankStat = sns.barplot(data=ankStatus)
-#plt.show()
+plt.show()
 
 #Get answers of only students
 answers=pd.DataFrame()
@@ -163,7 +163,7 @@ answerCount = {'Zdecydowanie tak': ansCount1, 'Raczej tak': ansCount2, 'Nie wiem
 dfAnswer = pd.DataFrame.from_dict(answerCount, orient='index', columns = ['Ilosc odpowiedzi']).T
 f, ax = plt.subplots(figsize=(10,7))
 sns.barplot(data=dfAnswer).set(title="Odpowiedzi studentów")
-#plt.show()
+plt.show()
 
 #Get answers of only workers
 answersPE=pd.DataFrame()
@@ -192,7 +192,7 @@ answerCountPE = {'Zdecydowanie tak': ansPECount1, 'Raczej tak': ansPECount2, 'Ni
 dfAnswerPE = pd.DataFrame.from_dict(answerCountPE, orient='index', columns = ['Ilosc odpowiedzi']).T
 f, ax = plt.subplots(figsize=(10,7))
 sns.barplot(data=dfAnswerPE).set(title="Odpowiedzi pracowników etatowych")
-#plt.show()
+plt.show()
 
 #Get all answers for particular questions
 nrAns = pd.DataFrame(result.values).T
@@ -209,7 +209,7 @@ ankietowanyAns['Pochodzenie'] = pd.to_numeric(ankietowany['Pochodzenie'])
 
 plt.figure(figsize=(20,20),dpi = 100)
 sns.heatmap(ankietowanyAns.corr(),annot = ankietowanyAns.corr())
-#plt.show()
+plt.show()
 
 #Decision tree
 features = list(ankietowanyAns.columns[:5])
@@ -220,9 +220,9 @@ dt.fit(x,y)
 class_list = ['Zdecydowanie tak','Raczej tak','Nie wiem','Raczej nie','Zdecydowanie nie']
 plt.figure(figsize=(20,20), dpi=50)
 tree.plot_tree(dt, feature_names=features, class_names=list(class_list), rounded=True, filled=True)
-#plt.show()
+plt.show()
 viz = dtreeviz(dt, x, y, target_name="NrPytania_4", feature_names=features, class_names=list(class_list))
-#viz.view()
+viz.view()
 
 #Apriori algorythm
 allAns = pd.read_csv('static/allAns.csv', header=0, sep=";", encoding='cp1252')
@@ -231,7 +231,6 @@ allAns = allAns.astype(str).apply(lambda x : x.name+ '_' + x)\
 lista = allAns.values.tolist()
 
 rules = apriori(lista,min_support = 0.3, min_lift=1.0, min_confidence=0.5)
-
 results = list(rules)
 results = filter(lambda x: len(x.items) < 5 , results)
 results = list(results)
@@ -247,7 +246,6 @@ def inspect(output):
     return list(zip(lhs, rhs, support, confidence, lift))
     
 output = pd.DataFrame(inspect(list(results)), columns = ['Left_Hand_Side', 'Right_Hand_Side', 'Support', 'Confidence', 'Lift'])
-
 pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_colwidth', None)
